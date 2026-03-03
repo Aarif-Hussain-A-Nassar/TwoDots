@@ -6,53 +6,34 @@ import { Mesh, MeshStandardMaterial, Color } from "three";
 import { useScroll } from "framer-motion";
 
 export default function GrittyObject() {
-    const meshRef = useRef<Mesh>(null);
-    const materialRef = useRef<MeshStandardMaterial>(null);
+    const pointsRef = useRef<any>(null);
     const { scrollYProgress } = useScroll(); // tracks 0 to 1
 
-    // Use a primitive geometry for now, e.g., an icosahedron or torus knot for complexity
-
     useFrame((state) => {
-        if (!meshRef.current) return;
+        if (!pointsRef.current) return;
 
         // Base rotation
-        meshRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
-        meshRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
+        pointsRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
+        pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
 
         // Scroll-based rotation and scaling
         const scrollVal = scrollYProgress.get();
 
         // Morph/Rotate aggressively on scroll
-        meshRef.current.rotation.z = scrollVal * Math.PI * 2;
-        meshRef.current.position.y = -scrollVal * 2; // Moves down slightly as we scroll
+        pointsRef.current.rotation.z = scrollVal * Math.PI * 2;
+        pointsRef.current.position.y = -scrollVal * 2; // Moves down slightly as we scroll
 
         // Scale breathes slightly based on scroll
         const targetScale = 1 + scrollVal * 0.5;
-        meshRef.current.scale.setScalar(targetScale);
-
-        // Pulse color slightly (dark matte grey to slightly lighter grey)
-        if (materialRef.current) {
-            materialRef.current.color = new Color().lerpColors(
-                new Color("#111111"),
-                new Color("#333333"),
-                scrollVal
-            );
-        }
+        pointsRef.current.scale.setScalar(targetScale);
     });
 
     return (
         <Float>
-            <mesh ref={meshRef}>
-                {/* A complex geometry that catches light aggressively */}
-                <torusKnotGeometry args={[1, 0.3, 128, 64]} />
-                <meshStandardMaterial
-                    ref={materialRef}
-                    color="#111111"
-                    roughness={0.7}
-                    metalness={0.5}
-                    bumpScale={0.02}
-                />
-            </mesh>
+            <points ref={pointsRef}>
+                <sphereGeometry args={[1.5, 64, 64]} />
+                <pointsMaterial color="#111111" size={0.015} sizeAttenuation={true} transparent={true} opacity={0.8} />
+            </points>
         </Float>
     );
 }

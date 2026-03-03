@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
-import ImageObject from "./ImageObject";
+import GrittyObject from "./GrittyObject";
 
 export default function Scene() {
   return (
@@ -13,7 +13,7 @@ export default function Scene() {
         gl={{ antialias: true, alpha: true }}
       >
         <Suspense fallback={null}>
-          <ImageObject />
+          <GrittyObject />
 
           {/* Adds studio lighting environment for reflections */}
           <Environment preset="studio" />
