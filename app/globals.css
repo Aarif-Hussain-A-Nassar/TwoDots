@@ -1,26 +1,96 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #222222;
+  --font-geist-sans: "Geist", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+
+html,
+body,
+#root,
+main {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--background);
+  /* Solid #0a0a0a black */
+  color: var(--foreground);
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom overlay scroll */
+.scroll-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 10;
+  scroll-behavior: smooth;
+}
+
+/* Base Utility Classes tailored to High-End aesthetic */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #666;
+  max-width: 60ch;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  p {
+    color: #a0a0a0;
   }
 }
 
-body {
-  background: var(--background);
+/* Dotted/Stencil aesthetic for specific headers */
+.stencil-text {
+  font-family: monospace;
+  /* Could be replaced by a specific stencil font */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.6;
+}
+
+/* Custom Layout Utilities */
+.section-padding {
+  padding: 10vh 5vw;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
