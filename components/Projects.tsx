@@ -33,8 +33,7 @@ export function Projects() {
                                 alignItems: "center",
                                 padding: "2rem 0",
                                 borderBottom: "1px solid var(--accent)",
-                                cursor: "pointer",
-                                group: "true" // simulate tailwind group purely for structural note, real hover will use framer motion or css
+                                cursor: "pointer"
                             }}
                             whileHover={{ x: 20 }}
                         >
