@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function About() {
     return (
-        <section className="section-padding min-h-screen flex-center" style={{ position: "relative", zIndex: 10 }}>
+        <section className="section-padding min-h-screen flex-center" style={{ position: "relative", zIndex: 10, borderTop: "1px solid rgba(255, 255, 255, 0.15)" }}>
             <div style={{ width: "100%", maxWidth: "1200px", display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "4rem" }}>
 
                 <motion.div
@@ -13,7 +13,7 @@ export function About() {
                     viewport={{ once: true, margin: "-20%" }}
                     style={{ flex: "1 1 300px" }}
                 >
-                    <h2 className="stencil-text" style={{ marginBottom: "2rem" }}>Completed projects.</h2>
+                    <h2 className="stencil-text" style={{ marginBottom: "2rem" }}>01 — Profile</h2>
                 </motion.div>
 
                 <motion.div
@@ -21,14 +21,14 @@ export function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-20%" }}
                     transition={{ duration: 0.8 }}
-                    style={{ flex: "2 1 600px" }}
+                    style={{ flex: "2 1 600px", maxWidth: "800px" }}
                 >
-                    <h3 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.2, fontWeight: 500, marginBottom: "3rem" }}>
-                        Trusted by teams from early to established. Built to support every stage.
+                    <h3 style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 1.2, fontWeight: 400, marginBottom: "3rem", textTransform: "uppercase" }}>
+                        Architecting systems from early protocols to established platforms. <br /> <i style={{ opacity: 0.8 }}>Built for scale.</i>
                     </h3>
-                    <p style={{ fontSize: "1.25rem" }}>
-                        We redesigned Kyan’s entire e-commerce experience from strategy and structure to design and messaging.
-                        A methodical, research driven process that delivers lasting outcomes.
+                    <p style={{ fontSize: "0.85rem", fontFamily: "var(--font-mono), monospace", textTransform: "uppercase", letterSpacing: "0.05em", lineHeight: 1.8 }}>
+                        We re-engineer entire digital architectures from strategy and structure to performance and scale.
+                        A methodical, brutalist approach that strips away noise and delivers raw, lasting outcomes.
                     </p>
                 </motion.div>
 

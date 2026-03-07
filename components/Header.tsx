@@ -24,14 +24,12 @@ export default function Header() {
             style={{
                 borderBottom: mounted
                     ? isDark
-                        ? "1px solid rgba(255, 255, 255, 0.15)"
-                        : "1px solid rgba(0, 0, 0, 0.15)"
+                        ? "1px solid rgba(255, 255, 255, 0.1)"
+                        : "1px solid rgba(0, 0, 0, 0.1)"
                     : "1px solid transparent",          // neutral SSR default
                 background: mounted
-                    ? isDark ? "#000000" : "rgba(255, 255, 255, 0.8)"
+                    ? isDark ? "#000000" : "#ffffff"
                     : "transparent",
-                backdropFilter: "blur(8px)",
-                WebkitBackdropFilter: "blur(8px)",
             }}
         >
             <div className={styles.innerFlex}>
