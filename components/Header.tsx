@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
+import styles from './header.module.css';
+
 export default function Header() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
@@ -13,65 +15,46 @@ export default function Header() {
     }, []);
 
     return (
-        <header style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "64px",
-            boxSizing: "border-box",
-            borderBottom: theme === "dark"
-                ? "1px solid rgba(255, 255, 255, 0.15)"
-                : "1px solid rgba(0, 0, 0, 0.15)",
-            background: mounted
-                ? theme === "dark"
-                    ? "#000000" // Pitch black to hide the logo's black background box
-                    : "rgba(255, 255, 255, 0.8)"
-                : "transparent",
-            backdropFilter: "blur(8px)",
-            WebkitBackdropFilter: "blur(8px)",
-            padding: "0 4rem", /* Increased padding to move elements further inward */
-            zIndex: 50,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            pointerEvents: "auto",
-            transition: "background 0.4s ease, border 0.4s ease"
-        }}>
-            <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "space-between" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+        <header
+            className={styles.headerContainer}
+            style={{
+                borderBottom: theme === "dark"
+                    ? "1px solid rgba(255, 255, 255, 0.15)"
+                    : "1px solid rgba(0, 0, 0, 0.15)",
+                background: mounted
+                    ? theme === "dark"
+                        ? "#000000" // Pitch black to hide the logo's black background box
+                        : "rgba(255, 255, 255, 0.8)"
+                    : "transparent",
+                backdropFilter: "blur(8px)",
+                WebkitBackdropFilter: "blur(8px)",
+            }}
+        >
+            <div className={styles.innerFlex}>
+                <div className={styles.logoGroup}>
                     {/* Light Mode Logo */}
-                    <Image
-                        src="/logo black 1.svg"
-                        alt="Logo Light"
-                        width={140}
-                        height={36}
-                        className="logo-light"
-                        priority
-                        style={{ display: mounted && theme === 'dark' ? 'none' : 'block' }}
-                    />
+                    <div className={styles.logo} style={{ position: "relative", display: mounted && theme === 'dark' ? 'none' : 'block' }}>
+                        <Image
+                            src="/logo black 1.svg"
+                            alt="Logo Light"
+                            fill
+                            style={{ objectFit: 'contain' }}
+                            priority
+                        />
+                    </div>
                     {/* Dark Mode Logo */}
-                    <Image
-                        src="/logo dark mode 1.svg"
-                        alt="Logo Dark"
-                        width={140}
-                        height={36}
-                        className="logo-dark"
-                        priority
-                        style={{ display: mounted && theme === 'dark' ? 'block' : 'none' }}
-                    />
+                    <div className={styles.logo} style={{ position: "relative", display: mounted && theme === 'dark' ? 'block' : 'none' }}>
+                        <Image
+                            src="/logo dark mode 1.svg"
+                            alt="Logo Dark"
+                            fill
+                            style={{ objectFit: 'contain' }}
+                            priority
+                        />
+                    </div>
 
                     {/* Technical Micro Text */}
-                    <div style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.5rem",
-                        fontFamily: "monospace",
-                        fontSize: "0.65rem",
-                        letterSpacing: "0.1em",
-                        opacity: 0.6,
-                        marginTop: "4px"
-                    }}>
+                    <div className={styles.sysStatus}>
                         <div style={{
                             width: "6px",
                             height: "6px",
@@ -84,7 +67,7 @@ export default function Header() {
                     </div>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+                <div className={styles.toggleGroup}>
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                         style={{

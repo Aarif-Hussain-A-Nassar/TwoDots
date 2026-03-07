@@ -1,0 +1,87 @@
+.headerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: auto;
+    transition: background 0.4s ease, border 0.4s ease, padding 0.4s ease, height 0.4s ease;
+
+    /* Desktop */
+    height: 64px;
+    padding: 0 4rem;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .headerContainer {
+        height: 56px;
+        padding: 0 1.5rem;
+    }
+}
+
+/* The inner flex box */
+.innerFlex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Logo and Status Container */
+.logoGroup {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .logoGroup {
+        gap: 1rem;
+    }
+}
+
+/* Base Logo Sizing for desktop */
+.logo {
+    width: 140px;
+    height: 36px;
+    transition: all 0.3s ease;
+}
+
+/* Scale down logo slightly on mobile */
+@media (max-width: 768px) {
+    .logo {
+        width: 110px;
+        height: 28px;
+    }
+}
+
+/* System Status Micro-text */
+.sysStatus {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+/* Hide the micro text entirely on mobile to save space */
+@media (max-width: 768px) {
+    .sysStatus {
+        display: none;
+    }
+}
+
+/* Toggle Group Container */
+.toggleGroup {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
