@@ -37,13 +37,10 @@ export default function Header() {
             <div className={styles.innerFlex}>
                 {/* ── Logo Group ─────────────────────────────── */}
                 <div className={styles.logoGroup}>
-                    {/* Light Mode Logo — visible by default; hidden after mount in dark mode */}
-                    <div
-                        className={styles.logo}
-                        style={{ position: "relative", display: isDark ? "none" : "block" }}
-                    >
+                    {/* Light Mode Logo — hidden in dark mode via CSS (.dark class on <html>) */}
+                    <div className={`${styles.logo} ${styles.logoLight}`} style={{ position: "relative" }}>
                         <Image
-                            src="/logo black 1.svg"
+                            src="/logo black 1.png"
                             alt="Logo Light"
                             fill
                             style={{ objectFit: "contain" }}
@@ -51,13 +48,10 @@ export default function Header() {
                         />
                     </div>
 
-                    {/* Dark Mode Logo — hidden by default; shown after mount in dark mode */}
-                    <div
-                        className={styles.logo}
-                        style={{ position: "relative", display: isDark ? "block" : "none" }}
-                    >
+                    {/* Dark Mode Logo — shown in dark mode via CSS */}
+                    <div className={`${styles.logo} ${styles.logoDark}`} style={{ position: "relative" }}>
                         <Image
-                            src="/logo dark mode 1.svg"
+                            src="/logo dark mode 1.png"
                             alt="Logo Dark"
                             fill
                             style={{ objectFit: "contain" }}
