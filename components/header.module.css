@@ -7,21 +7,21 @@
     box-sizing: border-box;
     z-index: 50;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     pointer-events: auto;
     transition: background 0.4s ease, border 0.4s ease, padding 0.4s ease, height 0.4s ease;
 
     /* Desktop default */
     height: 64px;
-    padding: 0 4rem;
+    padding: 0 5vw;
 }
 
 /* Tablet (≤ 1024px) */
 @media (max-width: 1024px) {
     .headerContainer {
         height: 60px;
-        padding: 0 2.5rem;
+        padding: 0 5vw;
     }
 }
 
@@ -29,7 +29,7 @@
 @media (max-width: 768px) {
     .headerContainer {
         height: 56px;
-        padding: 0 1.5rem;
+        padding: 0 5vw;
     }
 }
 
@@ -37,7 +37,7 @@
 @media (max-width: 480px) {
     .headerContainer {
         height: 52px;
-        padding: 0 1rem;
+        padding: 0 5vw;
     }
 }
 
@@ -45,7 +45,7 @@
 @media (max-width: 360px) {
     .headerContainer {
         height: 48px;
-        padding: 0 0.75rem;
+        padding: 0 5vw;
     }
 }
 
@@ -54,8 +54,11 @@
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-content: space-between;
 }
+
 
 /* ─── Logo + Status Group ───────────────────────────────────── */
 .logoGroup {
@@ -64,17 +67,21 @@
     gap: 2rem;
     flex-shrink: 1;
     min-width: 0;
+    margin-left: -8px;
+    /* Optically counteracts the SVG's internal left-padding */
 }
 
 @media (max-width: 1024px) {
     .logoGroup {
         gap: 1.5rem;
+        margin-left: -6px;
     }
 }
 
 @media (max-width: 768px) {
     .logoGroup {
         gap: 1rem;
+        margin-left: -4px;
     }
 }
 

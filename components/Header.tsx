@@ -43,7 +43,7 @@ export default function Header() {
                             src="/logo black 1.svg"
                             alt="Logo Light"
                             fill
-                            style={{ objectFit: "contain" }}
+                            style={{ objectFit: "contain", objectPosition: "left center" }}
                             priority
                         />
                     </div>
@@ -54,7 +54,7 @@ export default function Header() {
                             src="/logo dark mode 1.svg"
                             alt="Logo Dark"
                             fill
-                            style={{ objectFit: "contain" }}
+                            style={{ objectFit: "contain", objectPosition: "left center" }}
                             priority
                         />
                     </div>
