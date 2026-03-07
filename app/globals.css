@@ -5,7 +5,11 @@
   --font-geist-sans: "Geist", sans-serif;
 }
 
-
+.dark {
+  --background: #000000;
+  --foreground: #fdfcfc;
+  --accent: #333333;
+}
 
 html,
 body,
@@ -17,11 +21,11 @@ main {
   padding: 0;
   overflow: hidden;
   background-color: var(--background);
-  /* Solid #0a0a0a black */
   color: var(--foreground);
   font-family: var(--font-geist-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom overlay scroll */
@@ -68,10 +72,24 @@ p {
   max-width: 60ch;
 }
 
-@media (prefers-color-scheme: dark) {
-  p {
-    color: #a0a0a0;
-  }
+.dark p {
+  color: #a0a0a0;
+}
+
+.logo-light {
+  display: block;
+}
+
+.logo-dark {
+  display: none;
+}
+
+.dark .logo-light {
+  display: none;
+}
+
+.dark .logo-dark {
+  display: block;
 }
 
 /* Dotted/Stencil aesthetic for specific headers */
