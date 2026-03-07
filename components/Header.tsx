@@ -14,36 +14,55 @@ export default function Header() {
     return (
         <header style={{
             position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            boxSizing: "border-box",
-            padding: "2rem 5vw",
+            top: "2rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "calc(100% - 4rem)",
+            maxWidth: "1000px",
+            height: "80px",
+            borderRadius: "9999px",
+            border: theme === "dark"
+                ? "1px solid rgba(255, 255, 255, 0.1)"
+                : "1px solid rgba(0, 0, 0, 0.05)",
+            background: mounted
+                ? theme === "dark"
+                    ? "rgba(10, 10, 10, 0.4)"
+                    : "rgba(255, 255, 255, 0.4)"
+                : "transparent",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            boxShadow: theme === "dark"
+                ? "0 4px 30px rgba(0, 0, 0, 0.5)"
+                : "0 4px 30px rgba(0, 0, 0, 0.05)",
+            padding: "0 2rem",
             zIndex: 50,
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            pointerEvents: "none"
+            pointerEvents: "auto",
+            transition: "all 0.4s ease"
         }}>
-            <div style={{ pointerEvents: "auto", display: "flex", alignItems: "center", gap: "2rem", width: "100%", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "space-between" }}>
                 <div>
                     {/* Light Mode Logo */}
                     <Image
                         src="/logo black 1.svg"
                         alt="Logo Light"
-                        width={180}
-                        height={48}
+                        width={140}
+                        height={36}
                         className="logo-light"
                         priority
+                        style={{ display: mounted && theme === 'dark' ? 'none' : 'block' }}
                     />
                     {/* Dark Mode Logo */}
                     <Image
                         src="/logo dark mode 1.svg"
                         alt="Logo Dark"
-                        width={180}
-                        height={48}
+                        width={140}
+                        height={36}
                         className="logo-dark"
                         priority
+                        style={{ display: mounted && theme === 'dark' ? 'block' : 'none' }}
                     />
                 </div>
 
