@@ -109,6 +109,20 @@ p {
   padding: 10vh 5vw;
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
