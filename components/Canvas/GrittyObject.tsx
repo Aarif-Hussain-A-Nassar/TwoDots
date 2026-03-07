@@ -4,12 +4,17 @@ import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Mesh, MeshStandardMaterial, Color } from "three";
 import { useScroll } from "framer-motion";
+import { useTheme } from "next-themes";
 
 export default function GrittyObject() {
     const pointsRef = useRef<any>(null);
+    const materialRef = useRef<any>(null);
     const { scrollYProgress } = useScroll(); // tracks 0 to 1
+    const { theme } = useTheme();
 
-    useFrame((state) => {
+    const targetColor = new Color(theme === "dark" ? "#ffffff" : "#111111");
+
+    useFrame((state, delta) => {
         if (!pointsRef.current) return;
 
         // Base rotation
@@ -26,13 +31,18 @@ export default function GrittyObject() {
         // Scale breathes slightly based on scroll
         const targetScale = 1 + scrollVal * 0.5;
         pointsRef.current.scale.setScalar(targetScale);
+
+        if (materialRef.current) {
+            // Smoothly interpolate the color
+            materialRef.current.color.lerp(targetColor, delta * 5);
+        }
     });
 
     return (
         <Float>
             <points ref={pointsRef}>
                 <sphereGeometry args={[1.5, 64, 64]} />
-                <pointsMaterial color="#111111" size={0.015} sizeAttenuation={true} transparent={true} opacity={0.8} />
+                <pointsMaterial ref={materialRef} color="#111111" size={0.015} sizeAttenuation={true} transparent={true} opacity={0.8} />
             </points>
         </Float>
     );

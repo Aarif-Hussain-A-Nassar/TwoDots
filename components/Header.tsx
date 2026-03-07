@@ -54,18 +54,25 @@ export default function Header() {
                         width: "56px",
                         height: "28px",
                         borderRadius: "9999px",
-                        border: "1px solid rgba(150, 150, 150, 0.2)",
+                        border: theme === "dark" ? "1px solid rgba(255, 255, 255, 0.2)" : "1px solid rgba(0, 0, 0, 0.15)",
                         background: mounted
                             ? theme === "dark"
-                                ? "linear-gradient(to right, #374151 50%, #a3e635 50%)"
-                                : "linear-gradient(to right, #a3e635 50%, #e5e7eb 50%)"
-                            : "#e5e7eb", // Fallback color
+                                ? "rgba(255,255,255,0.05)"
+                                : "rgba(0,0,0,0.03)"
+                            : "transparent",
                         cursor: "pointer",
                         outline: "none",
-                        transition: "background 0.3s ease",
-                        flexShrink: 0
+                        transition: "all 0.4s ease",
+                        flexShrink: 0,
+                        backdropFilter: "blur(4px)"
                     }}
                     aria-label="Toggle theme"
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = "scale(1.05)";
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = "scale(1)";
+                    }}
                 >
                     <div
                         style={{
@@ -75,9 +82,11 @@ export default function Header() {
                             width: "22px",
                             height: "22px",
                             borderRadius: "50%",
-                            background: "#ffffff",
-                            boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-                            transition: "left 0.3s cubic-bezier(0.16, 1, 0.3, 1)"
+                            background: theme === "dark" ? "#ffffff" : "#111111",
+                            boxShadow: theme === "dark"
+                                ? "0 0 10px rgba(255, 255, 255, 0.3)"
+                                : "0 2px 5px rgba(0,0,0,0.2)",
+                            transition: "left 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, box-shadow 0.4s ease"
                         }}
                     />
                 </button>
