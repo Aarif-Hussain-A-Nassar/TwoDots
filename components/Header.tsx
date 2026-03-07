@@ -98,7 +98,7 @@ export default function Header() {
                             className={styles.toggleKnob}
                             style={{
                                 // knob slides right in dark mode; stays left on SSR (no flash)
-                                left: isDark ? "calc(100% - 25px)" : "3px",
+                                left: isDark ? "calc(100% - var(--knob-offset, 25px))" : "3px",
                                 background: mounted
                                     ? isDark ? "#ffffff" : "#111111"
                                     : "#111111",          // neutral SSR default

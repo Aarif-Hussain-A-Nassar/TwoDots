@@ -189,16 +189,29 @@
     /* Desktop */
     width: 56px;
     height: 28px;
+    --knob-offset: 25px;
+    /* 22px knob + 3px padding */
 }
 
 .themeToggle:hover {
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .themeToggle {
+        width: 52px;
+        height: 26px;
+        --knob-offset: 23px;
+        /* 20px knob + 3px padding */
+    }
+}
+
 @media (max-width: 480px) {
     .themeToggle {
         width: 48px;
         height: 24px;
+        --knob-offset: 21px;
+        /* 18px knob + 3px padding */
     }
 }
 
@@ -206,6 +219,8 @@
     .themeToggle {
         width: 42px;
         height: 22px;
+        --knob-offset: 19px;
+        /* 16px knob + 3px padding */
     }
 }
 
@@ -219,6 +234,13 @@
     transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         background-color 0.4s ease,
         box-shadow 0.4s ease;
+}
+
+@media (max-width: 768px) {
+    .toggleKnob {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 @media (max-width: 480px) {
