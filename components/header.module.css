@@ -1,3 +1,4 @@
+/* ─── Header Container ─────────────────────────────────────── */
 .headerContainer {
     position: fixed;
     top: 0;
@@ -11,12 +12,20 @@
     pointer-events: auto;
     transition: background 0.4s ease, border 0.4s ease, padding 0.4s ease, height 0.4s ease;
 
-    /* Desktop */
+    /* Desktop default */
     height: 64px;
     padding: 0 4rem;
 }
 
-/* Mobile Breakpoint */
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+    .headerContainer {
+        height: 60px;
+        padding: 0 2.5rem;
+    }
+}
+
+/* Mobile (≤ 768px) */
 @media (max-width: 768px) {
     .headerContainer {
         height: 56px;
@@ -24,7 +33,23 @@
     }
 }
 
-/* The inner flex box */
+/* Small phones (≤ 480px) */
+@media (max-width: 480px) {
+    .headerContainer {
+        height: 52px;
+        padding: 0 1rem;
+    }
+}
+
+/* Extra-small phones (≤ 360px) */
+@media (max-width: 360px) {
+    .headerContainer {
+        height: 48px;
+        padding: 0 0.75rem;
+    }
+}
+
+/* ─── Inner Flex ────────────────────────────────────────────── */
 .innerFlex {
     display: flex;
     align-items: center;
@@ -32,11 +57,17 @@
     justify-content: space-between;
 }
 
-/* Logo and Status Container */
+/* ─── Logo + Status Group ───────────────────────────────────── */
 .logoGroup {
     display: flex;
     align-items: center;
     gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .logoGroup {
+        gap: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -45,14 +76,21 @@
     }
 }
 
-/* Base Logo Sizing for desktop */
+/* ─── Logo ──────────────────────────────────────────────────── */
 .logo {
     width: 140px;
     height: 36px;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
-/* Scale down logo slightly on mobile */
+@media (max-width: 1024px) {
+    .logo {
+        width: 125px;
+        height: 32px;
+    }
+}
+
 @media (max-width: 768px) {
     .logo {
         width: 110px;
@@ -60,7 +98,21 @@
     }
 }
 
-/* System Status Micro-text */
+@media (max-width: 480px) {
+    .logo {
+        width: 95px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo {
+        width: 80px;
+        height: 22px;
+    }
+}
+
+/* ─── SYS.READY Micro-text ──────────────────────────────────── */
 .sysStatus {
     display: flex;
     align-items: center;
@@ -70,18 +122,86 @@
     letter-spacing: 0.1em;
     opacity: 0.6;
     margin-top: 4px;
+    white-space: nowrap;
 }
 
-/* Hide the micro text entirely on mobile to save space */
+/* Hide on mobile — reclaim precious horizontal space */
 @media (max-width: 768px) {
     .sysStatus {
         display: none;
     }
 }
 
-/* Toggle Group Container */
+/* ─── Toggle Group ──────────────────────────────────────────── */
 .toggleGroup {
     display: flex;
     align-items: center;
     gap: 2rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .toggleGroup {
+        gap: 1rem;
+    }
+}
+
+/* ─── Theme Toggle Button ───────────────────────────────────── */
+.themeToggle {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.4s ease, background 0.4s ease, border 0.4s ease;
+    border-radius: 9999px;
+    backdropFilter: blur(4px);
+
+    /* Desktop */
+    width: 56px;
+    height: 28px;
+}
+
+.themeToggle:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .themeToggle {
+        width: 48px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 360px) {
+    .themeToggle {
+        width: 42px;
+        height: 22px;
+    }
+}
+
+/* ─── Toggle Knob ───────────────────────────────────────────── */
+.toggleKnob {
+    position: absolute;
+    top: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+@media (max-width: 480px) {
+    .toggleKnob {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .toggleKnob {
+        width: 16px;
+        height: 16px;
+        top: 3px;
+    }
 }
