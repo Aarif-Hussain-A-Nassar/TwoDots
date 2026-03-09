@@ -17,9 +17,8 @@ export default function Overlay() {
         <div
             ref={containerRef}
             className="scroll-container"
-            style={{ pointerEvents: "none" }} // Let clicks pass through if needed
         >
-            <div style={{ minHeight: "200vh", pointerEvents: "auto" }}>
+            <div style={{ minHeight: "200vh" }}>
                 <Hero />
                 <About />
                 <Projects />

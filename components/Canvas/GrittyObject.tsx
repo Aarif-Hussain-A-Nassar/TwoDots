@@ -10,9 +10,11 @@ export default function GrittyObject() {
     const pointsRef = useRef<any>(null);
     const materialRef = useRef<any>(null);
     const { scrollYProgress } = useScroll(); // tracks 0 to 1
-    const { theme } = useTheme();
+    const { theme, resolvedTheme } = useTheme();
 
-    const targetColor = new Color(theme === "dark" ? "#ffffff" : "#111111");
+    // Determine the effective theme. Default to 'dark' for the first tick if unsure.
+    const activeTheme = resolvedTheme || theme;
+    const targetColor = new Color(activeTheme === "light" ? "#111111" : "#ffffff");
 
     useFrame((state, delta) => {
         if (!pointsRef.current) return;
