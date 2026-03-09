@@ -11,6 +11,7 @@ export default function Scene() {
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <GrittyObject />

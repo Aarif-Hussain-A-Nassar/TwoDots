@@ -25,7 +25,7 @@ export function Hero() {
                 </div>
 
                 <h1 style={{
-                    fontSize: "clamp(3.5rem, 10vw, 10rem)",
+                    fontSize: "clamp(2.5rem, 8vw, 8rem)",
                     fontWeight: 400,
                     letterSpacing: "-0.02em",
                     lineHeight: 0.9,
@@ -33,8 +33,8 @@ export function Hero() {
                     marginBottom: "3rem",
                     pointerEvents: "auto"
                 }}>
-                    System <br />
-                    <i style={{ opacity: 0.8 }}>Architect.</i>
+                    WHERE IDEAS <br />
+                    <i style={{ opacity: 0.8 }}>BECOME WEB...</i>
                 </h1>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem", pointerEvents: "auto" }}>
@@ -64,7 +64,7 @@ export function Hero() {
                             e.currentTarget.style.color = "var(--background)";
                         }}
                     >
-                        [ INITIALIZE ]
+                        [ GET QUOTE NOW ]
                     </button>
 
                     <p style={{

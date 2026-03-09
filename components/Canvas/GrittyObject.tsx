@@ -67,8 +67,8 @@ export default function GrittyObject() {
 
                 vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                 
-                // Dynamic sizing: higher peaks are slightly larger
-                gl_PointSize = (2.0 + vElevation * 2.0) * (20.0 / -mvPosition.z);
+                // Dynamic sizing: higher peaks are slightly larger (increased base size to compensate for fewer points)
+                gl_PointSize = (3.5 + vElevation * 3.0) * (20.0 / -mvPosition.z);
                 gl_Position = projectionMatrix * mvPosition;
             }
         `,
@@ -105,8 +105,8 @@ export default function GrittyObject() {
                 rotation={[-Math.PI / 2.5, 0, 0]} // Tilt it back
                 position={[0, -8, -10]}           // Drop it low to the bottom center and deep
             >
-                {/* A wide, dense plane grid of points */}
-                <planeGeometry args={[35, 25, 128, 128]} />
+                {/* A wide, dense plane grid of points (optimized to 64x64 for performance) */}
+                <planeGeometry args={[35, 25, 64, 64]} />
                 <shaderMaterial ref={materialRef} args={[shaderArgs]} />
             </points>
         </Float>
