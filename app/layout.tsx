@@ -9,8 +9,11 @@ const playfair = Playfair_Display({ subsets: ["latin"], display: "swap", variabl
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: "moro. | System Architect",
+  title: "Two Dots",
   description: "Crafting digital experiences that matter.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
