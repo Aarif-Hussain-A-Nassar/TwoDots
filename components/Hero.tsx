@@ -1,15 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const Scene = dynamic(() => import("./Canvas/Scene"), { ssr: false });
 
 export function Hero() {
     return (
-        <section className="min-h-screen flex-center flex-column" style={{ padding: "0 5vw" }}>
+        <section className="min-h-screen flex-center flex-column" style={{ position: "relative", padding: "0 5vw" }}>
+            {/* Absolute 3D Scene in the background of just this section */}
+            <Scene />
+
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                style={{ width: "100%", maxWidth: "1200px" }}
+                style={{ width: "100%", maxWidth: "1200px", position: "relative", zIndex: 1, pointerEvents: "none" }}
             >
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
                     <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "50%" }}></div>
@@ -24,13 +30,14 @@ export function Hero() {
                     letterSpacing: "-0.02em",
                     lineHeight: 0.9,
                     textTransform: "uppercase",
-                    marginBottom: "3rem"
+                    marginBottom: "3rem",
+                    pointerEvents: "auto"
                 }}>
                     System <br />
                     <i style={{ opacity: 0.8 }}>Architect.</i>
                 </h1>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem", pointerEvents: "auto" }}>
                     <button
                         className="brutalist-btn"
                         style={{
@@ -45,7 +52,8 @@ export function Hero() {
                             cursor: "pointer",
                             fontSize: "0.9rem",
                             fontWeight: 600,
-                            transition: "all 0.3s ease"
+                            transition: "all 0.3s ease",
+                            pointerEvents: "auto"
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.background = "transparent";
