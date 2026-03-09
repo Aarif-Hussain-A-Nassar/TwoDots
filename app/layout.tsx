@@ -26,8 +26,8 @@ export default function RootLayout({
       <body className={jetbrains.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <CursorGlow />
