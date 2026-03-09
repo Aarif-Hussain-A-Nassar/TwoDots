@@ -14,24 +14,12 @@ export default function Header() {
         setMounted(true);
     }, []);
 
-    // Derive theme-dependent values only after mounting to prevent
-    // SSR ↔ client hydration mismatches (all unresolved theme → neutral defaults)
+    // We only need 'theme' and 'setTheme' from Next-Themes hook.
+    // CSS :global(.dark) handles all visual toggling, preventing SSR flash.
     const isDark = mounted && theme === "dark";
 
     return (
-        <header
-            className={styles.headerContainer}
-            style={{
-                borderBottom: mounted
-                    ? isDark
-                        ? "1px solid rgba(255, 255, 255, 0.1)"
-                        : "1px solid rgba(0, 0, 0, 0.1)"
-                    : "1px solid transparent",          // neutral SSR default
-                background: mounted
-                    ? isDark ? "#000000" : "#ffffff"
-                    : "transparent",
-            }}
-        >
+        <header className={styles.headerContainer}>
             <div className={styles.innerFlex}>
                 {/* ── Logo Group ─────────────────────────────── */}
                 <div className={styles.logoGroup}>
@@ -59,18 +47,7 @@ export default function Header() {
 
                     {/* SYS.READY micro status — hidden on mobile via CSS */}
                     <div className={styles.sysStatus}>
-                        <div
-                            style={{
-                                width: "6px",
-                                height: "6px",
-                                borderRadius: "50%",
-                                background: mounted
-                                    ? isDark ? "#a3e635" : "#16a34a"
-                                    : "#16a34a",          // neutral SSR default
-                                boxShadow: isDark ? "0 0 8px #a3e635" : "none",
-                                animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                            }}
-                        />
+                        <div className={styles.sysReadyDot} />
                         SYS.READY
                     </div>
                 </div>
@@ -78,33 +55,11 @@ export default function Header() {
                 {/* ── Toggle Group ───────────────────────────── */}
                 <div className={styles.toggleGroup}>
                     <button
-                        onClick={() => setTheme(isDark ? "light" : "dark")}
+                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                         className={styles.themeToggle}
-                        style={{
-                            border: mounted
-                                ? isDark
-                                    ? "1px solid rgba(255, 255, 255, 0.2)"
-                                    : "1px solid rgba(0, 0, 0, 0.15)"
-                                : "1px solid rgba(0, 0, 0, 0.15)", // neutral SSR default
-                            background: mounted
-                                ? isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.03)"
-                                : "transparent",
-                        }}
                         aria-label="Toggle theme"
                     >
-                        <div
-                            className={styles.toggleKnob}
-                            style={{
-                                // knob slides right in dark mode; stays left on SSR (no flash)
-                                left: isDark ? "calc(100% - var(--knob-offset, 25px))" : "3px",
-                                background: mounted
-                                    ? isDark ? "#ffffff" : "#111111"
-                                    : "#111111",          // neutral SSR default
-                                boxShadow: isDark
-                                    ? "0 0 10px rgba(255, 255, 255, 0.3)"
-                                    : "0 2px 5px rgba(0,0,0,0.2)",
-                            }}
-                        />
+                        <div className={styles.toggleKnob} />
                     </button>
                 </div>
             </div>

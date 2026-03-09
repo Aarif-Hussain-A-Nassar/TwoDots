@@ -15,6 +15,15 @@
     /* Desktop default */
     height: 64px;
     padding: 0 5vw;
+
+    /* Native Light Theme defaults */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+:global(.dark) .headerContainer {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000000;
 }
 
 /* Tablet (≤ 1024px) */
@@ -155,6 +164,20 @@
     white-space: nowrap;
 }
 
+.sysReadyDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #16a34a;
+    box-shadow: none;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:global(.dark) .sysReadyDot {
+    background: #a3e635;
+    box-shadow: 0 0 8px #a3e635;
+}
+
 /* Hide on mobile — reclaim precious horizontal space */
 @media (max-width: 768px) {
     .sysStatus {
@@ -191,6 +214,15 @@
     height: 28px;
     --knob-offset: 25px;
     /* 22px knob + 3px padding */
+
+    /* Native Light Theme Default */
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.03);
+}
+
+:global(.dark) .themeToggle {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .themeToggle:hover {
@@ -234,6 +266,17 @@
     transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         background-color 0.4s ease,
         box-shadow 0.4s ease;
+
+    /* Native Light Theme Default */
+    left: 3px;
+    background: #111111;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+:global(.dark) .toggleKnob {
+    left: calc(100% - var(--knob-offset, 25px));
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
