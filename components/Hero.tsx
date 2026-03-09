@@ -20,7 +20,7 @@ export function Hero() {
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
                     <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "50%" }}></div>
                     <span className="stencil-text" style={{ margin: 0, display: "block" }}>
-                        PORTFOLIO / 2026
+                        WEB / TWODOTS
                     </span>
                 </div>
 
