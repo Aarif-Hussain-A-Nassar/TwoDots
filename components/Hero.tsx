@@ -76,7 +76,7 @@ export function Hero() {
                         letterSpacing: "0.05em",
                         lineHeight: 1.8
                     }}>
-                        Engineering digital infrastructure and hyper-performance web experiences.
+                        From concept to launch, we create fast, modern, and scalable websites tailored for growing businesses.
                     </p>
                 </div>
             </motion.div>
