@@ -13,10 +13,11 @@ export default function GrittyObject() {
 
     // Determine the effective theme.
     const activeTheme = resolvedTheme || theme;
-    // Bright core color
-    const targetColor = new Color(activeTheme === "light" ? "#111111" : "#ffffff");
-    // Deep trail base color (dimmed)
-    const baseColor = new Color(activeTheme === "light" ? "#aaaaaa" : "#333333");
+
+    // Core interaction color (when mouse is near)
+    const targetColor = new Color(activeTheme === "light" ? "#000000" : "#ffffff");
+    // Deep background base (almost invisible)
+    const baseColor = new Color(activeTheme === "light" ? "#e5e5e5" : "#1a1a1a");
 
     useEffect(() => {
         if (materialRef.current) {
@@ -26,25 +27,17 @@ export default function GrittyObject() {
     }, [activeTheme, baseColor, targetColor]);
 
     useFrame((state) => {
-        if (!pointsRef.current) return;
+        if (!pointsRef.current || !materialRef.current) return;
 
         const elapsedTime = state.clock.getElapsedTime();
 
-        // Smooth base rotation of the entire object
-        pointsRef.current.rotation.x = elapsedTime * 0.1;
-        pointsRef.current.rotation.y = elapsedTime * 0.15;
+        // Very slow, ambient rotation of the entire plane
         pointsRef.current.rotation.z = elapsedTime * 0.05;
 
-        // Keep it large but constant for a premium visual
-        pointsRef.current.scale.setScalar(0.85);
-
-        // Feed elapsed time into the shader for the shooting trail
-        if (materialRef.current) {
-            materialRef.current.uniforms.uTime.value = elapsedTime;
-        }
+        // Feed uniforms to the shader
+        materialRef.current.uniforms.uTime.value = elapsedTime;
     });
 
-    // Custom shader configuration for the firecracker trailing effect
     const shaderArgs = {
         uniforms: {
             uTime: { value: 0 },
@@ -53,77 +46,67 @@ export default function GrittyObject() {
         },
         vertexShader: `
             uniform float uTime;
-            varying float vGlow;
+            varying float vElevation;
 
             void main() {
-                // Calculate position of the point
                 vec3 pos = position;
 
-                // Create a traveling "wave" or "spark" that moves based on time and the y coordinate
-                // We use sine to create bands of light that travel upwards/downwards
-                float wave = sin(pos.y * 3.0 + uTime * 2.0);
-                
-                // Add a secondary wave for more complex, chaotic "firecracker" trailing
-                float secondaryWave = sin(pos.x * 2.0 - uTime * 3.0 + pos.z * 1.5);
-                
-                // Combine waves. Only values near the peak get highlighted.
-                float combined = wave * 0.6 + secondaryWave * 0.4;
-                
-                // vGlow becomes 1.0 (bright) at the peak, fading to 0.0 (dim trail) behind it
-                vGlow = smoothstep(0.4, 0.9, combined);
-                
-                // Very slightly push bright points outward for an energetic spark feel
-                pos += normal * vGlow * 0.05;
+                // 1. Ambient Topographical Waves
+                // Complex undulating floor effect combining multiple sine waves
+                float wave1 = sin(pos.x * 0.5 + uTime * 0.5) * 0.5;
+                float wave2 = cos(pos.y * 0.5 + uTime * 0.3) * 0.5;
+                float ambientZ = wave1 + wave2;
+
+                // We normalize the ambientZ a bit so we can use it to color the peaks
+                // ambientZ varies roughly from -1.0 to 1.0, so we map it to 0.0 -> 1.0
+                vElevation = (ambientZ + 1.0) / 2.0;
+
+                // 2. Apply Transformations
+                // Elevate points based purely on the ambient waves
+                pos.z += ambientZ * 2.0;
 
                 vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                 
-                // Dynamic sizing: brighter points are physically slightly larger
-                gl_PointSize = (1.5 + vGlow * 2.0) * (20.0 / -mvPosition.z);
+                // Dynamic sizing: higher peaks are slightly larger
+                gl_PointSize = (2.0 + vElevation * 2.0) * (20.0 / -mvPosition.z);
                 gl_Position = projectionMatrix * mvPosition;
             }
         `,
         fragmentShader: `
             uniform vec3 uBaseColor;
             uniform vec3 uHighlightColor;
-            varying float vGlow;
+            varying float vElevation;
 
             void main() {
-                // Determine point shape (soft circle)
+                // Soft circle shape
                 float distanceToCenter = distance(gl_PointCoord, vec2(0.5));
                 if (distanceToCenter > 0.5) discard;
                 
-                // Soft edge fading for the point itself
                 float alpha = (0.5 - distanceToCenter) * 2.0;
 
-                // Mix the base dim color with the bright highlight color based on the vGlow wave
-                vec3 finalColor = mix(uBaseColor, uHighlightColor, vGlow);
+                // 1. Color Mixing based on Elevation (peaks are brighter)
+                vec3 finalColor = mix(uBaseColor, uHighlightColor, vElevation);
 
-                // Overall alpha. Non-glowing base points are mostly transparent (0.2), peak glows are solid (1.0 * alpha)
-                float finalAlpha = mix(0.15, 0.9, vGlow) * alpha;
+                // 2. Opacity
+                // Troughs are dim (0.2), peaks are brighter (0.7)
+                float finalAlpha = mix(0.2, 0.7, vElevation) * alpha;
 
                 gl_FragColor = vec4(finalColor, finalAlpha);
             }
         `,
         transparent: true,
-        depthWrite: false, // Prevents points from incorrectly sorting their transparency z-index against each other
+        depthWrite: false,
     };
 
-    useFrame((state, delta) => {
-        if (!pointsRef.current) return;
-
-        // Smooth base rotation
-        pointsRef.current.rotation.x = state.clock.getElapsedTime() * 0.1;
-        pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.15;
-        pointsRef.current.rotation.z = state.clock.getElapsedTime() * 0.05;
-
-        // Keep it large but constant for a premium visual
-        pointsRef.current.scale.setScalar(0.85);
-    });
-
     return (
-        <Float>
-            <points ref={pointsRef}>
-                <sphereGeometry args={[1.5, 64, 64]} />
+        <Float floatIntensity={0.5} rotationIntensity={0.2} speed={1}>
+            <points
+                ref={pointsRef}
+                rotation={[-Math.PI / 2.5, 0, 0]} // Tilt it back
+                position={[0, -8, -10]}           // Drop it low to the bottom center and deep
+            >
+                {/* A wide, dense plane grid of points */}
+                <planeGeometry args={[35, 25, 128, 128]} />
                 <shaderMaterial ref={materialRef} args={[shaderArgs]} />
             </points>
         </Float>
