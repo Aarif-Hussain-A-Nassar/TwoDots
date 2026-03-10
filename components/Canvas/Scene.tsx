@@ -2,7 +2,6 @@
 import { Suspense } from "react";
 
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import GrittyObject from "./GrittyObject";
 
 export default function Scene() {
@@ -15,9 +14,6 @@ export default function Scene() {
       >
         <Suspense fallback={null}>
           <GrittyObject />
-
-          {/* Adds studio lighting environment for reflections */}
-          <Environment preset="studio" />
         </Suspense>
       </Canvas>
     </div>
