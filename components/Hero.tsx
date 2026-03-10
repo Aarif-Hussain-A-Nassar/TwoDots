@@ -20,7 +20,7 @@ export function Hero() {
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
                     <div className="sysReadyDot" style={{ width: "8px", height: "8px" }}></div>
                     <span className="stencil-text" style={{ margin: 0, display: "block", letterSpacing: "0.2em", fontSize: "0.65rem", color: "var(--neon-lime)" }}>
-                        SYS.READY // TWODOTS
+                        WEB / TWODOTS
                     </span>
                 </div>
 
@@ -75,7 +75,7 @@ export function Hero() {
                             e.currentTarget.style.transform = "translateY(0)";
                         }}
                     >
-                        Initiate Sequence →
+                        [ GET QUOTE NOW ]
                     </button>
 
                     <p style={{
@@ -87,7 +87,7 @@ export function Hero() {
                         lineHeight: 1.7,
                         color: "var(--muted)"
                     }}>
-                        From concept to launch, we architect high-performance digital experiences built for scale, speed, and conversion.
+                        From concept to launch, we create fast, modern, and scalable websites tailored for growing businesses
                     </p>
                 </div>
             </motion.div>
