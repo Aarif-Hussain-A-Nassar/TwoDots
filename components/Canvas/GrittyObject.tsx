@@ -14,10 +14,10 @@ export default function GrittyObject() {
     // Determine the effective theme.
     const activeTheme = resolvedTheme || theme;
 
-    // Core interaction color (when mouse is near)
-    const targetColor = new Color(activeTheme === "light" ? "#000000" : "#ffffff");
-    // Deep background base (almost invisible)
-    const baseColor = new Color(activeTheme === "light" ? "#e5e5e5" : "#1a1a1a");
+    // Core interaction color (Neon Lime)
+    const targetColor = new Color(activeTheme === "light" ? "#A3E635" : "#A3E635");
+    // Deep background base (Dark Void)
+    const baseColor = new Color(activeTheme === "light" ? "#e5e5e5" : "#050505");
 
     useEffect(() => {
         if (materialRef.current) {
@@ -88,8 +88,8 @@ export default function GrittyObject() {
                 vec3 finalColor = mix(uBaseColor, uHighlightColor, vElevation);
 
                 // 2. Opacity
-                // Troughs are dim (0.2), peaks are brighter (0.7)
-                float finalAlpha = mix(0.2, 0.7, vElevation) * alpha;
+                // Troughs are dim (0.1), peaks are brighter (0.9)
+                float finalAlpha = mix(0.1, 0.9, vElevation) * alpha;
 
                 gl_FragColor = vec4(finalColor, finalAlpha);
             }

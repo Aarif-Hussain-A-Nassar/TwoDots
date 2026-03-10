@@ -28,8 +28,8 @@ export default function CursorGlow() {
     if (!mounted || theme !== "dark") return null;
 
     // Define the glow color for dark mode
-    // Dark mode: a subtle stark white spotlight
-    const glowColor = "rgba(255, 255, 255, 0.08)";
+    // Dark mode: a subtle neon lime spotlight
+    const glowColor = "rgba(163, 230, 53, 0.05)";
 
     return (
         <div

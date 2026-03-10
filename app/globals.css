@@ -1,15 +1,19 @@
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  --accent: #e5e5e5;
-  --muted: #666666;
+  --foreground: #111111;
+  --accent: #f0f0f0;
+  --muted: #888888;
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --neon-lime: #A3E635;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #ffffff;
-  --accent: #333333;
-  --muted: #a1a1aa;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #111111;
+  --muted: #888888;
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --neon-lime: #A3E635;
 }
 
 html,
@@ -24,10 +28,11 @@ main {
   overflow: hidden;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-mono), monospace;
+  font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
+  letter-spacing: -0.01em;
 }
 
 /* Custom overlay scroll */
@@ -66,7 +71,7 @@ h6 {
   margin: 0;
   line-height: 1.1;
   letter-spacing: -0.04em;
-  font-family: var(--font-serif), serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 500;
 }
 
@@ -97,18 +102,44 @@ p {
   display: block;
 }
 
-/* Dotted/Stencil aesthetic for specific headers */
+/* ── Premium UI Utilities ── */
+
 .stencil-text {
-  font-family: var(--font-mono), monospace;
-  letter-spacing: 0.1em;
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--foreground);
-  opacity: 0.6;
+  color: var(--muted);
 }
 
-/* Custom Layout Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.dark .glass-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.glass-card:hover {
+  border-color: rgba(163, 230, 53, 0.3);
+  /* neon lime glow */
+  box-shadow: 0 8px 32px rgba(163, 230, 53, 0.05);
+  transform: translateY(-2px);
+}
+
+.neon-glow-text {
+  color: var(--neon-lime);
+  text-shadow: 0 0 20px rgba(163, 230, 53, 0.3);
+}
+
 .section-padding {
   padding: 10vh 5vw;
 }
@@ -127,6 +158,18 @@ p {
   }
 }
 
-.min-h-screen {
-  min-height: 100vh;
+/* Base interactive transitions */
+a,
+button {
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+::-moz-selection {
+  background: var(--neon-lime);
+  color: #000;
+}
+
+::selection {
+  background: var(--neon-lime);
+  color: #000;
 }

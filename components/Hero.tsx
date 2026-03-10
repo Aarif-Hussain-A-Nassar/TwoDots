@@ -17,66 +17,77 @@ export function Hero() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 style={{ width: "100%", maxWidth: "1200px", position: "relative", zIndex: 1, pointerEvents: "none" }}
             >
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
-                    <div style={{ width: "8px", height: "8px", background: "#3b82f6", borderRadius: "50%" }}></div>
-                    <span className="stencil-text" style={{ margin: 0, display: "block" }}>
-                        WEB / TWODOTS
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
+                    <div className="sysReadyDot" style={{ width: "8px", height: "8px" }}></div>
+                    <span className="stencil-text" style={{ margin: 0, display: "block", letterSpacing: "0.2em", fontSize: "0.65rem", color: "var(--neon-lime)" }}>
+                        SYS.READY // TWODOTS
                     </span>
                 </div>
 
                 <h1 style={{
-                    fontSize: "clamp(2.5rem, 8vw, 8rem)",
-                    fontWeight: 400,
-                    letterSpacing: "-0.02em",
-                    lineHeight: 0.9,
-                    textTransform: "uppercase",
+                    fontSize: "clamp(3rem, 7vw, 7rem)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.05em",
+                    lineHeight: 1.05,
                     marginBottom: "3rem",
-                    pointerEvents: "auto"
+                    pointerEvents: "auto",
+                    color: "var(--foreground)"
                 }}>
-                    WHERE IDEAS <br />
-                    <i style={{ opacity: 0.8 }}>BECOME WEB...</i>
+                    Engineering Ideas <br />
+                    Into <span style={{
+                        background: "linear-gradient(90deg, #FFFFFF 0%, #A3E635 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        display: "inline-block"
+                    }}>Modern Web...</span>
                 </h1>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem", pointerEvents: "auto" }}>
                     <button
-                        className="brutalist-btn"
                         style={{
                             alignSelf: "flex-start",
-                            padding: "1rem 2rem",
-                            background: "var(--foreground)",
-                            color: "var(--background)",
-                            border: "1px solid var(--foreground)",
-                            fontFamily: "var(--font-mono), monospace",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.1em",
+                            padding: "0.8rem 2rem",
+                            background: "rgba(255, 255, 255, 0.05)",
+                            color: "var(--foreground)",
+                            border: "1px solid rgba(255, 255, 255, 0.1)",
+                            borderRadius: "9999px",
+                            fontFamily: "var(--font-inter), sans-serif",
+                            letterSpacing: "0.05em",
                             cursor: "pointer",
-                            fontSize: "0.9rem",
-                            fontWeight: 600,
-                            transition: "all 0.3s ease",
+                            fontSize: "0.85rem",
+                            fontWeight: 500,
+                            backdropFilter: "blur(10px)",
+                            transition: "all 0.4s ease",
                             pointerEvents: "auto"
                         }}
                         onMouseEnter={(e) => {
-                            e.currentTarget.style.background = "transparent";
-                            e.currentTarget.style.color = "var(--foreground)";
+                            e.currentTarget.style.background = "rgba(163, 230, 53, 0.1)";
+                            e.currentTarget.style.borderColor = "rgba(163, 230, 53, 0.5)";
+                            e.currentTarget.style.color = "var(--neon-lime)";
+                            e.currentTarget.style.boxShadow = "0 0 20px rgba(163, 230, 53, 0.2)";
+                            e.currentTarget.style.transform = "translateY(-2px)";
                         }}
                         onMouseLeave={(e) => {
-                            e.currentTarget.style.background = "var(--foreground)";
-                            e.currentTarget.style.color = "var(--background)";
+                            e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
+                            e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
+                            e.currentTarget.style.color = "var(--foreground)";
+                            e.currentTarget.style.boxShadow = "none";
+                            e.currentTarget.style.transform = "translateY(0)";
                         }}
                     >
-                        [ GET QUOTE NOW ]
+                        Initiate Sequence →
                     </button>
 
                     <p style={{
-                        maxWidth: "500px",
-                        fontFamily: "var(--font-mono), monospace",
-                        fontSize: "0.85rem",
-                        marginTop: "2rem",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.05em",
-                        lineHeight: 1.8
+                        maxWidth: "520px",
+                        fontFamily: "var(--font-inter), sans-serif",
+                        fontSize: "1rem",
+                        marginTop: "1.5rem",
+                        letterSpacing: "-0.01em",
+                        lineHeight: 1.7,
+                        color: "var(--muted)"
                     }}>
-                        From concept to launch, we create fast, modern, and scalable websites tailored for growing businesses.
+                        From concept to launch, we architect high-performance digital experiences built for scale, speed, and conversion.
                     </p>
                 </div>
             </motion.div>
