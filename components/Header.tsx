@@ -26,7 +26,7 @@ export default function Header() {
                     {/* Light Mode Logo — hidden in dark mode via CSS (.dark class on <html>) */}
                     <div className={`${styles.logo} ${styles.logoLight}`} style={{ position: "relative" }}>
                         <Image
-                            src="/logo black 1.svg"
+                            src="/Twodots green light mode.png"
                             alt="Logo Light"
                             fill
                             style={{ objectFit: "contain", objectPosition: "left center" }}
@@ -37,7 +37,7 @@ export default function Header() {
                     {/* Dark Mode Logo — shown in dark mode via CSS */}
                     <div className={`${styles.logo} ${styles.logoDark}`} style={{ position: "relative" }}>
                         <Image
-                            src="/logo dark mode 1.svg"
+                            src="/Twodots green dark mode.png"
                             alt="Logo Dark"
                             fill
                             style={{ objectFit: "contain", objectPosition: "left center" }}
