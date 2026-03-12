@@ -4,6 +4,8 @@
   --accent: #f0f0f0;
   --muted: #888888;
   --grid-color: rgba(0, 0, 0, 0.03);
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --neon-lime: #A3E635;
 }
 
@@ -13,6 +15,8 @@
   --accent: #111111;
   --muted: #888888;
   --grid-color: rgba(255, 255, 255, 0.03);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --neon-lime: #A3E635;
 }
 
@@ -177,4 +181,31 @@ button {
 .min-h-screen {
   min-height: 100vh;
   min-height: 100dvh;
+}
+
+/* Hero primary button glass styles */
+.hero-btn {
+  align-self: flex-start;
+  padding: 0.8rem 2rem;
+  background: var(--glass-bg);
+  color: var(--foreground);
+  border: 1px solid var(--glass-border);
+  border-radius: 9999px;
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  pointer-events: auto;
+}
+
+.hero-btn:hover {
+  background: rgba(163, 230, 53, 0.1);
+  border-color: rgba(163, 230, 53, 0.5);
+  color: var(--neon-lime);
+  box-shadow: 0 0 20px rgba(163, 230, 53, 0.2);
+  transform: translateY(-2px);
 }

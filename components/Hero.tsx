@@ -43,38 +43,7 @@ export function Hero() {
                 </h1>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem", pointerEvents: "auto" }}>
-                    <button
-                        style={{
-                            alignSelf: "flex-start",
-                            padding: "0.8rem 2rem",
-                            background: "rgba(255, 255, 255, 0.05)",
-                            color: "var(--foreground)",
-                            border: "1px solid rgba(255, 255, 255, 0.1)",
-                            borderRadius: "9999px",
-                            fontFamily: "var(--font-inter), sans-serif",
-                            letterSpacing: "0.05em",
-                            cursor: "pointer",
-                            fontSize: "0.85rem",
-                            fontWeight: 500,
-                            backdropFilter: "blur(10px)",
-                            transition: "all 0.4s ease",
-                            pointerEvents: "auto"
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.background = "rgba(163, 230, 53, 0.1)";
-                            e.currentTarget.style.borderColor = "rgba(163, 230, 53, 0.5)";
-                            e.currentTarget.style.color = "var(--neon-lime)";
-                            e.currentTarget.style.boxShadow = "0 0 20px rgba(163, 230, 53, 0.2)";
-                            e.currentTarget.style.transform = "translateY(-2px)";
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.background = "rgba(255, 255, 255, 0.05)";
-                            e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
-                            e.currentTarget.style.color = "var(--foreground)";
-                            e.currentTarget.style.boxShadow = "none";
-                            e.currentTarget.style.transform = "translateY(0)";
-                        }}
-                    >
+                    <button className="hero-btn">
                         [ GET QUOTE NOW ]
                     </button>
 
