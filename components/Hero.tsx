@@ -35,7 +35,7 @@ export function Hero() {
                 }}>
                     Engineering Ideas <br />
                     Into <span style={{
-                        background: "linear-gradient(90deg, #FFFFFF 0%, #A3E635 100%)",
+                        background: "linear-gradient(90deg, var(--foreground) 0%, var(--neon-lime) 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         display: "inline-block"
