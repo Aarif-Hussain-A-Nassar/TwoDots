@@ -4,8 +4,9 @@
   --accent: #f0f0f0;
   --muted: #888888;
   --grid-color: rgba(0, 0, 0, 0.03);
-  --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+  /* Very subtle gray to contrast pure white */
+  --glass-border: rgba(0, 0, 0, 0.08);
   --neon-lime: #A3E635;
 }
 
@@ -118,24 +119,29 @@ p {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  /* Important for light mode separation */
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .dark .glass-card {
   background: rgba(255, 255, 255, 0.015);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(163, 230, 53, 0.4);
+  box-shadow: none;
+  /* Dark mode separation comes from the glowing border instead */
+  /* Highly visible green border in dark mode */
 }
 
 .glass-card:hover {
-  border-color: rgba(163, 230, 53, 0.3);
+  border-color: rgba(163, 230, 53, 0.8);
   /* neon lime glow */
-  box-shadow: 0 8px 32px rgba(163, 230, 53, 0.05);
+  box-shadow: 0 8px 32px rgba(163, 230, 53, 0.15);
   transform: translateY(-2px);
 }
 
