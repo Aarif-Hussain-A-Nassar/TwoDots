@@ -200,6 +200,12 @@ p {
   padding: 10vh 5vw;
 }
 
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 6vh 6vw;
+  }
+}
+
 @keyframes pulse {
   0% {
     opacity: 0.4;

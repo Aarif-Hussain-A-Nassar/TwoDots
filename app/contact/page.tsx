@@ -5,7 +5,7 @@ import { ArrowLeft, Send } from "lucide-react";
 
 export default function ContactPage() {
     return (
-        <main className="section-padding scroll-container" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)" }}>
+        <main className="section-padding scroll-container" style={{ paddingTop: "clamp(6rem, 15vh, 12rem)" }}>
             <div style={{ width: "100%", maxWidth: "800px", margin: "0 auto" }}>
                 <TransitionLink href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
                     <ArrowLeft size={20} />
@@ -18,11 +18,11 @@ export default function ContactPage() {
                         <span className="stencil-text" style={{ color: "var(--neon-lime)" }}>GET IN TOUCH</span>
                     </div>
 
-                    <h1 style={{ fontSize: "clamp(2.5rem, 7vw, 5rem)", fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: "clamp(1.5rem, 4vw, 2rem)", wordBreak: "break-word" }}>
+                    <h1 style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: "clamp(1rem, 3vw, 2rem)", wordBreak: "break-word" }}>
                         Start a Project
                     </h1>
                     
-                    <form className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", marginTop: "clamp(1.5rem, 5vw, 3rem)", display: "flex", flexDirection: "column", gap: "2rem" }}>
+                    <form className="glass-card" style={{ padding: "clamp(1rem, 5vw, 3rem)", marginTop: "clamp(1rem, 5vw, 3rem)", display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                             <label htmlFor="name" style={{ color: "var(--muted)", fontSize: "0.9rem", letterSpacing: "0.05em" }}>NAME</label>
                             <input 
@@ -104,8 +104,8 @@ export default function ContactPage() {
                                 alignItems: "center", 
                                 gap: "0.5rem", 
                                 alignSelf: "flex-start",
-                                marginTop: "1rem",
-                                padding: "1rem 2.5rem",
+                                marginTop: "0.5rem",
+                                padding: "0.8rem 2rem",
                                 fontSize: "1rem"
                             }}
                         >
