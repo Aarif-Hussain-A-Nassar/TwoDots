@@ -3,16 +3,30 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 import styles from './header.module.css';
 
 export default function Header() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    // Prevent scrolling when menu is open
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [isMenuOpen]);
+
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const closeMenu = () => setIsMenuOpen(false);
 
     // We only need 'theme' and 'setTheme' from Next-Themes hook.
     // CSS :global(.dark) handles all visual toggling, preventing SSR flash.
@@ -85,8 +99,43 @@ export default function Header() {
                         >
                             <div className={styles.toggleKnob} />
                         </button>
+
+                        {/* Mobile Menu Toggle */}
+                        <button 
+                            className={styles.mobileToggle} 
+                            onClick={toggleMenu}
+                            aria-label="Toggle Menu"
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
                     </div>
                 </div>
+            </div>
+
+            {/* ── Mobile Menu Overlay ───────────────────────── */}
+            <div className={`${styles.mobileOverlay} ${isMenuOpen ? styles.mobileOverlayOpen : ''}`}>
+                <nav className={styles.mobileNav}>
+                    <a href="#about" className={styles.mobileNavLink} onClick={closeMenu}>
+                        <span className={styles.mobileNavNumber}>01</span>
+                        <span className={styles.mobileNavText}>PROFILE</span>
+                    </a>
+                    <a href="#services" className={styles.mobileNavLink} onClick={closeMenu}>
+                        <span className={styles.mobileNavNumber}>02</span>
+                        <span className={styles.mobileNavText}>SERVICES</span>
+                    </a>
+                    <a href="#projects" className={styles.mobileNavLink} onClick={closeMenu}>
+                        <span className={styles.mobileNavNumber}>03</span>
+                        <span className={styles.mobileNavText}>SELECTED WORK</span>
+                    </a>
+                    <a href="#team" className={styles.mobileNavLink} onClick={closeMenu}>
+                        <span className={styles.mobileNavNumber}>04</span>
+                        <span className={styles.mobileNavText}>TEAM</span>
+                    </a>
+                    <a href="#contact" className={styles.mobileNavLink} onClick={closeMenu}>
+                        <span className={styles.mobileNavNumber}>05</span>
+                        <span className={styles.mobileNavText}>CONTACT</span>
+                    </a>
+                </nav>
             </div>
         </header>
     );

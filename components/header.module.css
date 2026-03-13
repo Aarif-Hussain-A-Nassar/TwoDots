@@ -244,8 +244,87 @@
 
 @media (max-width: 768px) {
     .toggleGroup {
-        gap: 1rem;
+        gap: 0.5rem;
     }
+}
+
+/* ─── Mobile Menu Toggle ────────────────────────────────────── */
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+@media (max-width: 900px) {
+    .mobileToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ─── Mobile Menu Overlay ───────────────────────────────────── */
+.mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: #000000;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10vh 10vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileOverlayOpen {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobileNavLink {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mobileNavNumber {
+    font-size: 0.9rem;
+    color: var(--neon-lime);
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.mobileNavText {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileNavLink:hover .mobileNavText {
+    transform: translateX(10px);
+    color: var(--neon-lime);
 }
 
 /* ─── Theme Toggle Button ───────────────────────────────────── */
