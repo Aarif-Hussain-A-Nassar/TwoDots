@@ -4,8 +4,11 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
 
 import styles from './header.module.css';
+
+const ContactCanvas = dynamic(() => import("./Canvas/ContactCanvas"), { ssr: false });
 
 export default function Header() {
     const { theme, setTheme } = useTheme();
@@ -114,6 +117,7 @@ export default function Header() {
 
             {/* ── Mobile Menu Overlay ───────────────────────── */}
             <div className={`${styles.mobileOverlay} ${isMenuOpen ? styles.mobileOverlayOpen : ''}`}>
+                <ContactCanvas />
                 <nav className={styles.mobileNav}>
                     <a href="#about" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>01</span>
