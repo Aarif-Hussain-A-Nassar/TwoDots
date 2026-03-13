@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const ContactCanvas = dynamic(() => import("./Canvas/ContactCanvas"), { ssr: false });
 
@@ -16,7 +17,7 @@ export function Contact() {
             <ContactCanvas />
 
             <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "1px", background: "linear-gradient(90deg, transparent 0%, rgba(163,230,53,0.3) 50%, transparent 100%)", zIndex: 1 }}></div>
-            
+
             <div style={{ position: "relative", zIndex: 1, width: "100%", display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
                     <div className="sysReadyDot" style={{ width: "8px", height: "8px" }}></div>
@@ -28,9 +29,10 @@ export function Contact() {
                     Let's build <br /> <span style={{ color: "var(--muted)", fontWeight: 400 }}>the future.</span>
                 </h2>
                 <div style={{ display: "flex", gap: "1.5rem", marginTop: "3rem", fontSize: "0.9rem" }}>
-                    <a href="#" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>Email</a>
+                    <Link href="/contact" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>Email</Link>
                     <a href="#" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>LinkedIn</a>
-                    <a href="#" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>Twitter</a>
+                    <a href="#" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>Instagram</a>
+                    <a href="#" style={{ padding: "0.5rem 1rem", border: "1px solid var(--grid-color)", borderRadius: "9999px", textDecoration: "none", color: "var(--foreground)", background: "rgba(255,255,255,0.02)", backdropFilter: "blur(10px)" }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--neon-lime)"; e.currentTarget.style.color = "var(--neon-lime)"; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--grid-color)"; e.currentTarget.style.color = "var(--foreground)"; }}>Phone</a>
                 </div>
             </div>
         </footer>
