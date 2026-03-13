@@ -101,6 +101,10 @@ body.is-transitioning .scroll-container {
   -webkit-overflow-scrolling: touch;
 }
 
+body.menu-open .scroll-container {
+  overflow: hidden !important;
+}
+
 /* Base Utility Classes tailored to High-End aesthetic */
 .flex-column {
   display: flex;

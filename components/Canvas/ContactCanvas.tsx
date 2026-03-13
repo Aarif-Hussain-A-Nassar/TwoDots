@@ -105,7 +105,7 @@ function ParticleSphere() {
 
 export default function ContactCanvas() {
     return (
-        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "auto", opacity: 0.8 }}>
+        <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, opacity: 0.8 }}>
             <Canvas camera={{ position: [0, 0, 14], fov: 60 }} style={{ pointerEvents: "auto" }}>
                 <ParticleSphere />
             </Canvas>

@@ -21,12 +21,13 @@ export default function Header() {
 
     // Prevent scrolling when menu is open
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "unset";
-        }
-    }, [isMenuOpen]);
+        if (!mounted) return;
+        document.body.classList.toggle('menu-open', isMenuOpen);
+        
+        return () => {
+            document.body.classList.remove('menu-open');
+        };
+    }, [isMenuOpen, mounted]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -104,8 +105,8 @@ export default function Header() {
                         </button>
 
                         {/* Mobile Menu Toggle */}
-                        <button 
-                            className={styles.mobileToggle} 
+                        <button
+                            className={styles.mobileToggle}
                             onClick={toggleMenu}
                             aria-label="Toggle Menu"
                         >

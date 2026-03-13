@@ -11,11 +11,9 @@ import Header from "../components/Header";
 
 export default function Home() {
   return (
-    <main style={{ width: "100%", height: "100%", overflow: "hidden" }}>
-      <Header />
-
+    <main style={{ width: "100%", height: "100%" }}>
       {/* The HTML Foreground that scrolls over top */}
-      <Overlay />
+ <Overlay />
     </main>
   );
 }
