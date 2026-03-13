@@ -33,15 +33,15 @@ export default function AboutObject() {
 
     useFrame((state, delta) => {
         if (groupRef.current) {
-            // Elegant, slow rotation floating in isometric space
-            groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
-            groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.3) * 0.2;
-            groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.4) * 0.05;
+            // Faster elegant isometric rotation
+            groupRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 1.5) * 0.15;
+            groupRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 1.0) * 0.35;
+            groupRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 1.2) * 0.1;
         }
     });
 
     return (
-        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+        <Float speed={3.5} rotationIntensity={1} floatIntensity={1.5}>
             <group ref={groupRef}>
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[5, 5, 5]} intensity={2} />
