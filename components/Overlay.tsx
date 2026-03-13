@@ -6,6 +6,8 @@ import { Hero } from "./Hero";
 import { About } from "./About";
 import { Projects } from "./Projects";
 import { Contact } from "./Contact";
+import { Services } from "./Services";
+import { Founders } from "./Founders";
 
 export default function Overlay() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -22,7 +24,9 @@ export default function Overlay() {
             <div style={{ minHeight: "200vh" }}>
                 <Hero />
                 <About />
+                <Services />
                 <Projects />
+                <Founders />
                 <Contact />
             </div>
         </div>
