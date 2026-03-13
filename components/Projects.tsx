@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Globe, Instagram } from "lucide-react";
 import { TransitionLink } from "./TransitionLink";
 
 const PROJECTS = [
-    { title: "Netzone", category: "Web Development", year: "2024", slug: "netzone" },
-    { title: "Cooking Grandma", category: "Web Design", year: "2024", slug: "cooking-grandma" },
-    { title: "Mass Developers", category: "Branding & Web", year: "2023", slug: "mass-developers" },
+    { title: "Netzone", category: "Web Development", url: "https://netzone.example.com", type: "website", slug: "netzone" },
+    { title: "Cooking Grandma", category: "Web Design", url: "https://cookinggrandma.example.com", type: "website", slug: "cooking-grandma" },
+    { title: "Mass Developers", category: "Video Production", url: "https://instagram.com/your-reel-link", type: "social", slug: "mass-developers" },
 ];
 
 export function Projects() {
@@ -66,8 +66,36 @@ export function Projects() {
                                     {project.title}
                                 </h3>
 
-                                <div style={{ display: "flex", alignItems: "center", gap: "3rem" }}>
-                                    <span className="stencil-text" style={{ opacity: 0.6, fontSize: "0.85rem", letterSpacing: "0.1em" }}>{project.year}</span>
+                                <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
+                                    <button 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            window.open(project.url, "_blank", "noopener,noreferrer");
+                                        }}
+                                        style={{
+                                            padding: "0.5rem 1.2rem",
+                                            background: "rgba(255,255,255,0.03)",
+                                            border: "1px solid var(--grid-color)",
+                                            borderRadius: "9999px",
+                                            color: "var(--foreground)",
+                                            fontFamily: "var(--font-inter)",
+                                            fontSize: "0.85rem",
+                                            cursor: "pointer",
+                                            transition: "all 0.3s ease",
+                                            letterSpacing: "0.05em"
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.borderColor = "var(--neon-lime)";
+                                            e.currentTarget.style.color = "var(--neon-lime)";
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.borderColor = "var(--grid-color)";
+                                            e.currentTarget.style.color = "var(--foreground)";
+                                        }}
+                                    >
+                                        {project.type === "social" ? <Instagram size={18} /> : <Globe size={18} />}
+                                    </button>
                                     <ArrowUpRight className="project-arrow" strokeWidth={1.5} size={32} opacity={0.3} style={{ transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", color: "var(--foreground)" }} />
                                 </div>
                             </motion.div>

@@ -25,7 +25,7 @@ export default function MassDevelopersPage() {
                     <div className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", marginTop: "clamp(1.5rem, 5vw, 3rem)" }}>
                         <h3 style={{ fontSize: "clamp(1.2rem, 3vw, 1.5rem)", marginBottom: "1rem", color: "var(--foreground)" }}>Overview</h3>
                         <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.1rem)", color: "var(--muted)", lineHeight: 1.8 }}>
-                            A comprehensive branding and digital overhaul for Mass Developers. We delivered a robust, scalable portfolio website that perfectly communicates their architectural capabilities and massive project scale through premium web development.
+                            High-impact video editing and content creation for Mass Developers. We crafted engaging, fast-paced reels to showcase their architectural projects on social media, driving significantly higher audience engagement and brand visibility.
                         </p>
                     </div>
                 </div>
