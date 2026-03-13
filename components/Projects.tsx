@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-
-import Link from "next/link";
+import { TransitionLink } from "./TransitionLink";
 
 const PROJECTS = [
     { title: "Netzone", category: "Web Development", year: "2024", slug: "netzone" },
@@ -25,7 +24,7 @@ export function Projects() {
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
                     {PROJECTS.map((project, index) => (
-                        <Link key={project.slug} href={`/projects/${project.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+                        <TransitionLink key={project.slug} href={`/projects/${project.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +71,7 @@ export function Projects() {
                                     <ArrowUpRight className="project-arrow" strokeWidth={1.5} size={32} opacity={0.3} style={{ transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", color: "var(--foreground)" }} />
                                 </div>
                             </motion.div>
-                        </Link>
+                        </TransitionLink>
                     ))}
                 </div>
 

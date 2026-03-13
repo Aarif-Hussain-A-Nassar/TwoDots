@@ -1,19 +1,18 @@
 "use client";
 
-import Link from "next/link";
+import { TransitionLink } from "../../components/TransitionLink";
 import { ArrowLeft, Send } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function ContactPage() {
     return (
         <main className="section-padding min-h-screen" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)", position: "relative", zIndex: 10 }}>
             <div style={{ width: "100%", maxWidth: "800px", margin: "0 auto" }}>
-                <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
+                <TransitionLink href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
                     <ArrowLeft size={20} />
                     <span className="stencil-text">BACK TO HOME</span>
-                </Link>
+                </TransitionLink>
 
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <div>
                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
                         <div className="sysReadyDot" style={{ width: "10px", height: "10px" }}></div>
                         <span className="stencil-text" style={{ color: "var(--neon-lime)" }}>GET IN TOUCH</span>
@@ -32,6 +31,7 @@ export default function ContactPage() {
                                 placeholder="What's your name?"
                                 style={{ 
                                     width: "100%", 
+                                    boxSizing: "border-box",
                                     padding: "1rem", 
                                     background: "rgba(255, 255, 255, 0.03)", 
                                     border: "1px solid var(--grid-color)", 
@@ -55,6 +55,7 @@ export default function ContactPage() {
                                 placeholder="How can we reach you?"
                                 style={{ 
                                     width: "100%", 
+                                    boxSizing: "border-box",
                                     padding: "1rem", 
                                     background: "rgba(255, 255, 255, 0.03)", 
                                     border: "1px solid var(--grid-color)", 
@@ -78,6 +79,7 @@ export default function ContactPage() {
                                 rows={6}
                                 style={{ 
                                     width: "100%", 
+                                    boxSizing: "border-box",
                                     padding: "1rem", 
                                     background: "rgba(255, 255, 255, 0.03)", 
                                     border: "1px solid var(--grid-color)", 
@@ -111,7 +113,7 @@ export default function ContactPage() {
                             <Send size={18} />
                         </button>
                     </form>
-                </motion.div>
+                </div>
             </div>
         </main>
     );    

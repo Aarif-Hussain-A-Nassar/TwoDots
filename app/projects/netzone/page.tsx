@@ -1,19 +1,18 @@
 "use client";
 
-import Link from "next/link";
+import { TransitionLink } from "../../../components/TransitionLink";
 import { ArrowLeft } from "lucide-react";
-import { motion } from "framer-motion";
 
 export default function NetzonePage() {
     return (
         <main className="section-padding min-h-screen" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)", position: "relative", zIndex: 10 }}>
             <div style={{ width: "100%", maxWidth: "1000px", margin: "0 auto" }}>
-                <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
+                <TransitionLink href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
                     <ArrowLeft size={20} />
                     <span className="stencil-text">BACK TO HOME</span>
-                </Link>
+                </TransitionLink>
 
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+                <div>
                     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
                         <div className="sysReadyDot" style={{ width: "10px", height: "10px" }}></div>
                         <span className="stencil-text" style={{ color: "var(--neon-lime)" }}>CASE STUDY</span>
@@ -29,7 +28,7 @@ export default function NetzonePage() {
                             A complete web development transformation for Netzone. We built a high-performance digital platform tailored to elevate their online presence, focusing on ultra-fast load times, seamless user experience, and a stunning modern design aesthetic.
                         </p>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </main>
     );    
