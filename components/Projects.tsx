@@ -12,7 +12,7 @@ const PROJECTS = [
 
 export function Projects() {
     return (
-        <section className="section-padding" style={{ paddingBottom: "20vh" }}>
+        <section id="projects" className="section-padding" style={{ paddingBottom: "20vh" }}>
             <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
                 <div style={{ marginBottom: "4rem", display: "flex", alignItems: "center", gap: "1rem" }}>

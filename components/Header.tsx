@@ -52,15 +52,40 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* ── Toggle Group ───────────────────────────── */}
-                <div className={styles.toggleGroup}>
-                    <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                        className={styles.themeToggle}
-                        aria-label="Toggle theme"
-                    >
-                        <div className={styles.toggleKnob} />
-                    </button>
+                {/* ── Actions Group (Nav + Toggle) ───────────── */}
+                <div className={styles.actionsGroup}>
+                    <nav className={styles.navGroup}>
+                        <a href="#about" className={styles.navLink}>
+                            <span className={styles.navNumber}>01</span>
+                            PROFILE
+                        </a>
+                        <a href="#services" className={styles.navLink}>
+                            <span className={styles.navNumber}>02</span>
+                            SERVICES
+                        </a>
+                        <a href="#projects" className={styles.navLink}>
+                            <span className={styles.navNumber}>03</span>
+                            SELECTED WORK
+                        </a>
+                        <a href="#team" className={styles.navLink}>
+                            <span className={styles.navNumber}>04</span>
+                            TEAM
+                        </a>
+                        <a href="#contact" className={styles.navLink}>
+                            <span className={styles.navNumber}>05</span>
+                            CONTACT
+                        </a>
+                    </nav>
+
+                    <div className={styles.toggleGroup}>
+                        <button
+                            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                            className={styles.themeToggle}
+                            aria-label="Toggle theme"
+                        >
+                            <div className={styles.toggleKnob} />
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Founders() {
     return (
-        <section className="section-padding min-h-screen flex-column" style={{ position: "relative", zIndex: 10, justifyContent: "center", gap: "4rem" }}>
+        <section id="team" className="section-padding min-h-screen flex-column" style={{ position: "relative", zIndex: 10, justifyContent: "center", gap: "4rem" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <div className="sysReadyDot" style={{ width: "10px", height: "10px" }}></div>
                 <h2 className="stencil-text" style={{ margin: 0, letterSpacing: "0.2em", fontSize: "0.8rem", color: "var(--neon-lime)" }}>

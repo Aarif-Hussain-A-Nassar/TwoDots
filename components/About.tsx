@@ -7,7 +7,7 @@ const AboutScene = dynamic(() => import("./Canvas/AboutScene"), { ssr: false });
 
 export function About() {
     return (
-        <section className="section-padding min-h-screen flex-center" style={{ position: "relative", zIndex: 10, overflow: "hidden" }}>
+        <section id="about" className="section-padding min-h-screen flex-center" style={{ position: "relative", zIndex: 10, overflow: "hidden" }}>
             <div style={{ width: "100%", maxWidth: "1200px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "4rem" }}>
 
                 <motion.div

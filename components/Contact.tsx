@@ -8,7 +8,7 @@ export function Contact() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <footer ref={containerRef} className="section-padding" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        <footer id="contact" ref={containerRef} className="section-padding" style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
             {/* 3D Canvas Background */}
             <ContactCanvas />
 

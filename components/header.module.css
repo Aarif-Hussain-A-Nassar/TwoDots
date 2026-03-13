@@ -73,11 +73,9 @@
 .logoGroup {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-shrink: 1;
     min-width: 0;
-    margin-left: -8px;
-    /* Optically counteracts the SVG's internal left-padding */
 }
 
 @media (max-width: 1024px) {
@@ -157,10 +155,9 @@
     align-items: center;
     gap: 0.5rem;
     font-family: monospace;
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     letter-spacing: 0.1em;
     opacity: 0.6;
-    margin-top: 4px;
     white-space: nowrap;
 }
 
@@ -179,17 +176,69 @@
 }
 
 /* Hide on mobile — reclaim precious horizontal space */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .sysStatus {
         display: none;
     }
 }
 
-/* ─── Toggle Group ──────────────────────────────────────────── */
+/* ─── Navigation Links ─────────────────────────────────────── */
+.navGroup {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-family: var(--font-inter), sans-serif;
+}
+
+.navNumber {
+    font-size: 0.65rem;
+    color: var(--neon-lime);
+    opacity: 0.8;
+    font-family: monospace;
+}
+
+.navLink:hover {
+    color: var(--foreground);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+    .actionsGroup {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .navGroup {
+        display: none;
+    }
+    .actionsGroup {
+        gap: 1rem;
+    }
+}
+
+/* ─── Actions Group (Nav + Toggle) ─────────────────────────── */
+.actionsGroup {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
 .toggleGroup {
     display: flex;
     align-items: center;
-    gap: 2rem;
     flex-shrink: 0;
 }
 
