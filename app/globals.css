@@ -10,6 +10,10 @@
   --neon-lime: #A3E635;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 .dark {
   --background: #000000;
   --foreground: #ededed;
@@ -78,8 +82,8 @@ main {
 body.is-transitioning #page-content,
 body.is-transitioning .scroll-container {
     opacity: 0 !important;
-    transform: translateY(-30px) !important;
-    transition: opacity 1s cubic-bezier(0.76, 0, 0.24, 1), transform 1s cubic-bezier(0.76, 0, 0.24, 1) !important;
+    transform: translateY(-40px) !important;
+    transition: opacity 1.5s cubic-bezier(0.8, 0, 0.2, 1), transform 1.5s cubic-bezier(0.8, 0, 0.2, 1) !important;
 }
 
 /* Custom overlay scroll */

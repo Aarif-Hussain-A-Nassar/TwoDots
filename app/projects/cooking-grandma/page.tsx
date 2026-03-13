@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 export default function CookingGrandmaPage() {
     return (
-        <main className="section-padding min-h-screen" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)", position: "relative", zIndex: 10 }}>
+        <main className="section-padding scroll-container" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)" }}>
             <div style={{ width: "100%", maxWidth: "1000px", margin: "0 auto" }}>
                 <TransitionLink href="/" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "var(--muted)", textDecoration: "none", marginBottom: "clamp(1.5rem, 4vw, 3rem)", transition: "color 0.3s" }} onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}>
                     <ArrowLeft size={20} />

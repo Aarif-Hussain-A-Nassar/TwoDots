@@ -29,7 +29,7 @@ export function TransitionLink({ children, href, ...props }: TransitionLinkProps
         document.body.classList.add("is-transitioning");
 
         // Wait for the exit animation duration (matching CSS)
-        await sleep(750);
+        await sleep(1200);
 
         // Proceed to navigation
         router.push(href.toString());
