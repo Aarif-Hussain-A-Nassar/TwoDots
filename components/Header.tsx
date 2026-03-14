@@ -5,6 +5,8 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+
 
 import styles from './header.module.css';
 
@@ -23,7 +25,7 @@ export default function Header() {
     useEffect(() => {
         if (!mounted) return;
         document.body.classList.toggle('menu-open', isMenuOpen);
-        
+
         return () => {
             document.body.classList.remove('menu-open');
         };
@@ -40,7 +42,7 @@ export default function Header() {
         <header className={styles.headerContainer}>
             <div className={styles.innerFlex}>
                 {/* ── Logo Group ─────────────────────────────── */}
-                <div className={styles.logoGroup}>
+                <Link href="/" className={styles.logoGroup}>
                     {/* Light Mode Logo — hidden in dark mode via CSS (.dark class on <html>) */}
                     <div className={`${styles.logo} ${styles.logoLight}`} style={{ position: "relative" }}>
                         <Image
@@ -68,7 +70,7 @@ export default function Header() {
                         <div className={styles.sysReadyDot} />
                         SYS.READY
                     </div>
-                </div>
+                </Link>
 
                 {/* ── Actions Group (Nav + Toggle) ───────────── */}
                 <div className={styles.actionsGroup}>
@@ -83,7 +85,7 @@ export default function Header() {
                         </a>
                         <a href="#projects" className={styles.navLink}>
                             <span className={styles.navNumber}>03</span>
-                            SELECTED WORK
+                            PROJECTS
                         </a>
                         <a href="#team" className={styles.navLink}>
                             <span className={styles.navNumber}>04</span>

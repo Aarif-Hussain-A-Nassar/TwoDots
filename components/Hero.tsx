@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+
 
 const Scene = dynamic(() => import("./Canvas/Scene"), { ssr: false });
 
@@ -43,9 +45,9 @@ export function Hero() {
                 </h1>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginTop: "2rem", pointerEvents: "auto" }}>
-                    <button className="hero-btn">
+                    <Link href="/contact" className="hero-btn">
                         [ GET QUOTE NOW ]
-                    </button>
+                    </Link>
 
                     <p style={{
                         maxWidth: "520px",

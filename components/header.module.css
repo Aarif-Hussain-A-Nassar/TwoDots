@@ -76,6 +76,8 @@
     gap: 1.5rem;
     flex-shrink: 1;
     min-width: 0;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media (max-width: 1024px) {
