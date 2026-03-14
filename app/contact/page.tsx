@@ -1,7 +1,7 @@
 "use client";
 
 import { TransitionLink } from "../../components/TransitionLink";
-import { ArrowLeft, Send, Phone, Mail, Share2, Instagram, Linkedin, Twitter, Github } from "lucide-react";
+import { ArrowLeft, Send, Phone, Mail, Share2, Instagram, Linkedin } from "lucide-react";
 import styles from "./contact.module.css";
 import Footer from "../../components/Footer";
 
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <div className={styles.connectGrid}>
                     <div className={styles.connectCard}>
                         <div className={styles.cardTitle}>Phone</div>
-                        <div className={styles.cardContent}>+91 7000000000</div>
+                        <div className={styles.cardContent}>+91 81293 36728</div>
                         <p className={styles.cardDescription}>
                             Give us a call and chat directly with our friendly team. We're always happy to answer any questions.
                         </p>
@@ -56,10 +56,8 @@ export default function ContactPage() {
                     <div className={styles.connectCard}>
                         <div className={styles.cardTitle}>Social Media</div>
                         <div className={styles.socialIcons}>
-                            <a href="#" className={styles.socialIcon} aria-label="Instagram"><Instagram size={20} /></a>
+                            <a href="https://www.instagram.com/twodots.dev?igsh=eHVtNWFnZW5uOTBq" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram"><Instagram size={20} /></a>
                             <a href="#" className={styles.socialIcon} aria-label="LinkedIn"><Linkedin size={20} /></a>
-                            <a href="#" className={styles.socialIcon} aria-label="Twitter"><Twitter size={20} /></a>
-                            <a href="#" className={styles.socialIcon} aria-label="GitHub"><Github size={20} /></a>
                         </div>
                         <p className={styles.cardDescription}>
                             Follow us on Social Media Platforms for a glimpse into our creative world, industry insights, and projects.
