@@ -7,7 +7,7 @@ import { TransitionLink } from "./TransitionLink";
 const PROJECTS = [
     { title: "Netzone", category: "Web Development", url: "https://www.netzonethecompletesolutions.com/", type: "website", slug: "netzone" },
     { title: "Cooking Grandma", category: "Web Design", url: "https://cooking-grandma.vercel.app/", type: "website", slug: "cooking-grandma" },
-    { title: "Mass Developers", category: "Video Production", url: "https://instagram.com/your-reel-link", type: "social", slug: "mass-developers" },
+    { title: "Mass Developers", category: "Video Production", url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", type: "social", slug: "mass-developers" },
 ];
 
 export function Projects() {
