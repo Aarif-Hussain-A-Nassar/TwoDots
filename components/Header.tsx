@@ -75,23 +75,23 @@ export default function Header() {
                 {/* ── Actions Group (Nav + Toggle) ───────────── */}
                 <div className={styles.actionsGroup}>
                     <nav className={styles.navGroup}>
-                        <a href="#about" className={styles.navLink}>
+                        <a href="/#about" className={styles.navLink}>
                             <span className={styles.navNumber}>01</span>
                             PROFILE
                         </a>
-                        <a href="#services" className={styles.navLink}>
+                        <a href="/#services" className={styles.navLink}>
                             <span className={styles.navNumber}>02</span>
                             SERVICES
                         </a>
-                        <a href="#projects" className={styles.navLink}>
+                        <a href="/#projects" className={styles.navLink}>
                             <span className={styles.navNumber}>03</span>
                             PROJECTS
                         </a>
-                        <a href="#team" className={styles.navLink}>
+                        <a href="/#team" className={styles.navLink}>
                             <span className={styles.navNumber}>04</span>
                             TEAM
                         </a>
-                        <a href="#contact" className={styles.navLink}>
+                        <a href="/#contact" className={styles.navLink}>
                             <span className={styles.navNumber}>05</span>
                             CONTACT
                         </a>
@@ -122,23 +122,23 @@ export default function Header() {
             <div className={`${styles.mobileOverlay} ${isMenuOpen ? styles.mobileOverlayOpen : ''}`}>
                 <ContactCanvas />
                 <nav className={styles.mobileNav}>
-                    <a href="#about" className={styles.mobileNavLink} onClick={closeMenu}>
+                    <a href="/#about" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>01</span>
                         <span className={styles.mobileNavText}>PROFILE</span>
                     </a>
-                    <a href="#services" className={styles.mobileNavLink} onClick={closeMenu}>
+                    <a href="/#services" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>02</span>
                         <span className={styles.mobileNavText}>SERVICES</span>
                     </a>
-                    <a href="#projects" className={styles.mobileNavLink} onClick={closeMenu}>
+                    <a href="/#projects" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>03</span>
                         <span className={styles.mobileNavText}>SELECTED WORK</span>
                     </a>
-                    <a href="#team" className={styles.mobileNavLink} onClick={closeMenu}>
+                    <a href="/#team" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>04</span>
                         <span className={styles.mobileNavText}>TEAM</span>
                     </a>
-                    <a href="#contact" className={styles.mobileNavLink} onClick={closeMenu}>
+                    <a href="/#contact" className={styles.mobileNavLink} onClick={closeMenu}>
                         <span className={styles.mobileNavNumber}>05</span>
                         <span className={styles.mobileNavText}>CONTACT</span>
                     </a>
