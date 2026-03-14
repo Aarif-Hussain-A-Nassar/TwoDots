@@ -7,18 +7,7 @@ export default function CookingGrandmaPage() {
     return (
         <main className="section-padding scroll-container" style={{ paddingTop: "clamp(12vh, 15vw, 20vh)", position: "relative" }}>
             {/* Large Watermark Background */}
-            <div style={{
-                position: "fixed",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "80vw",
-                height: "80vh",
-                pointerEvents: "none",
-                zIndex: 0,
-                opacity: 0.05,
-                transition: "opacity 0.6s ease"
-            }}>
+            <div className="page-watermark" style={{ opacity: 0.05 }}>
                 <img
                     src="/cookinggrandma.png"
                     alt=""
