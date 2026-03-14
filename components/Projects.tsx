@@ -5,9 +5,33 @@ import { ArrowUpRight, Globe, Instagram } from "lucide-react";
 import { TransitionLink } from "./TransitionLink";
 
 const PROJECTS = [
-    { title: "Netzone", category: "Web Development", url: "https://www.netzonethecompletesolutions.com/", type: "website", slug: "netzone" },
-    { title: "Cooking Grandma", category: "Web Design", url: "https://cooking-grandma.vercel.app/", type: "website", slug: "cooking-grandma" },
-    { title: "Mass Developers", category: "Video Production", url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", type: "social", slug: "mass-developers" },
+    { 
+        title: "Netzone", 
+        category: "Web Development", 
+        url: "https://www.netzonethecompletesolutions.com/", 
+        type: "website", 
+        slug: "netzone",
+        logoLight: "/logo-light.png",
+        logoDark: "/logo-dark.png"
+    },
+    { 
+        title: "Cooking Grandma", 
+        category: "Web Design", 
+        url: "https://cooking-grandma.vercel.app/", 
+        type: "website", 
+        slug: "cooking-grandma",
+        logoLight: "/cookinggrandma.png",
+        logoDark: "/cookinggrandma.png"
+    },
+    { 
+        title: "Mass Developers", 
+        category: "Video Production", 
+        url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", 
+        type: "social", 
+        slug: "mass-developers",
+        logoLight: "/masslight.jpeg",
+        logoDark: "/massdevelopersdark.jpeg"
+    },
 ];
 
 export function Projects() {
@@ -62,9 +86,46 @@ export function Projects() {
                                     if (title) title.style.transform = "translateX(0px)";
                                 }}
                             >
-                                <h3 className="project-title" style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)", margin: 0, fontWeight: 500, letterSpacing: "-0.03em", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)", color: "var(--foreground)" }}>
-                                    {project.title}
-                                </h3>
+                                {/* Left: Logo + Title */}
+                                <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+                                    {/* Logo */}
+                                    <div style={{ 
+                                        width: "clamp(48px, 7vw, 72px)", 
+                                        height: "clamp(48px, 7vw, 72px)",
+                                        borderRadius: "12px",
+                                        overflow: "hidden",
+                                        flexShrink: 0,
+                                        border: "1px solid var(--neon-lime-border)",
+                                        background: "var(--glass-bg)",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        padding: "6px"
+                                    }}>
+                                        <img
+                                            src={project.logoLight}
+                                            alt={project.title}
+                                            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                                            className="light-logo-only"
+                                        />
+                                        <img
+                                            src={project.logoDark}
+                                            alt={project.title}
+                                            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                                            className="dark-logo-only"
+                                        />
+                                    </div>
+
+                                    {/* Title + Category */}
+                                    <div>
+                                        <span style={{ display: "block", fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.12em", color: "var(--muted)", marginBottom: "0.3rem", textTransform: "uppercase" }}>
+                                            {project.category}
+                                        </span>
+                                        <h3 className="project-title" style={{ fontSize: "clamp(1.4rem, 3.5vw, 2.5rem)", margin: 0, fontWeight: 500, letterSpacing: "-0.03em", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)", color: "var(--foreground)" }}>
+                                            {project.title}
+                                        </h3>
+                                    </div>
+                                </div>
 
                                 <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
                                     <button
