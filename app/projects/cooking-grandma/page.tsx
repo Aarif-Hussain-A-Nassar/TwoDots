@@ -37,15 +37,18 @@ export default function CookingGrandmaPage() {
                     <h1 style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)", fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: "clamp(1.5rem, 4vw, 2rem)", wordBreak: "break-word" }}>
                         Cooking Grandma
                     </h1>
-                    
+
                     <div className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", marginTop: "clamp(1.5rem, 5vw, 3rem)" }}>
                         <h3 style={{ fontSize: "clamp(1.2rem, 3vw, 1.5rem)", marginBottom: "1rem", color: "var(--foreground)" }}>Overview</h3>
                         <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.1rem)", color: "var(--muted)", lineHeight: 1.8 }}>
-                            Bringing traditional recipes to the modern web. We designed and developed an intuitive, beautifully crafted web application for Cooking Grandma, enabling users to effortlessly explore, save, and share generations of culinary secrets.
+                            A modern web application designed to bring traditional recipes to the forefront. The platform
+                            features an intuitive interface that allows users to easily explore, save, and share a
+                            collection of culinary recipes. With a focus on user experience and accessibility,
+                            Cooking Grandma provides a seamless way to preserve and enjoy family recipes for generations to come.
                         </p>
                     </div>
                 </div>
             </div>
         </main>
-    );    
+    );
 }

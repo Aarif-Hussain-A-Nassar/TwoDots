@@ -43,7 +43,11 @@ export default function NetzonePage() {
                     <div className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", marginTop: "clamp(1.5rem, 5vw, 3rem)" }}>
                         <h3 style={{ fontSize: "clamp(1.2rem, 3vw, 1.5rem)", marginBottom: "1rem", color: "var(--foreground)" }}>Overview</h3>
                         <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.1rem)", color: "var(--muted)", lineHeight: 1.8 }}>
-                            A complete web development transformation for Netzone. We built a high-performance digital platform tailored to elevate their online presence, focusing on ultra-fast load times, seamless user experience, and a stunning modern design aesthetic.
+                            A complete digital platform developed for NetZone to showcase their security and automation solutions.
+                            The website highlights their services including CCTV systems, biometric access control, networking,
+                            gate automation, and smart home technologies. Built with a modern, high-performance architecture,
+                            the platform ensures fast loading speeds, intuitive navigation, and a professional interface that
+                            helps customers easily explore services, view completed projects, and connect with the NetZone team.
                         </p>
                     </div>
                 </div>
