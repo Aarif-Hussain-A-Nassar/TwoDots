@@ -157,6 +157,22 @@ p {
   display: block;
 }
 
+.light-logo-only {
+  display: block;
+}
+
+.dark-logo-only {
+  display: none;
+}
+
+.dark .light-logo-only {
+  display: none;
+}
+
+.dark .dark-logo-only {
+  display: block;
+}
+
 /* ── Premium UI Utilities ── */
 
 .stencil-text {
