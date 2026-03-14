@@ -5,8 +5,8 @@ import { ArrowUpRight, Globe, Instagram } from "lucide-react";
 import { TransitionLink } from "./TransitionLink";
 
 const PROJECTS = [
-    { title: "Netzone", category: "Web Development", url: "https://netzone.example.com", type: "website", slug: "netzone" },
-    { title: "Cooking Grandma", category: "Web Design", url: "https://cookinggrandma.example.com", type: "website", slug: "cooking-grandma" },
+    { title: "Netzone", category: "Web Development", url: "https://www.netzonethecompletesolutions.com/", type: "website", slug: "netzone" },
+    { title: "Cooking Grandma", category: "Web Design", url: "https://cooking-grandma.vercel.app/", type: "website", slug: "cooking-grandma" },
     { title: "Mass Developers", category: "Video Production", url: "https://instagram.com/your-reel-link", type: "social", slug: "mass-developers" },
 ];
 
@@ -67,7 +67,7 @@ export function Projects() {
                                 </h3>
 
                                 <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-                                    <button 
+                                    <button
                                         onClick={(e) => {
                                             e.preventDefault();
                                             e.stopPropagation();

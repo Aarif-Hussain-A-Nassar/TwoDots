@@ -14,8 +14,8 @@ export function Services() {
     const otherServices = [
         "Creative Design",
         "Social Media Management",
-        "Video Production",
-        "Strategic Advertising"
+        "Content Editing & Reels",
+
     ];
 
     return (
