@@ -4,10 +4,16 @@ import { TransitionLink } from "../../components/TransitionLink";
 import { ArrowLeft, Send, Phone, Mail, Share2, Instagram, Linkedin } from "lucide-react";
 import styles from "./contact.module.css";
 import Footer from "../../components/Footer";
+import dynamic from "next/dynamic";
+
+const ContactCanvas = dynamic(() => import("../../components/Canvas/ContactCanvas"), { ssr: false });
 
 export default function ContactPage() {
     return (
-        <main className="section-padding scroll-container" style={{ paddingTop: "clamp(6rem, 15vh, 12rem)" }}>
+        <main className="section-padding scroll-container" style={{ paddingTop: "clamp(6rem, 15vh, 12rem)", position: "relative" }}>
+            {/* 3D Canvas Background */}
+            <ContactCanvas />
+
             <div className={styles.contactContainer}>
                 <TransitionLink 
                     href="/" 
