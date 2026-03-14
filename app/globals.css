@@ -186,13 +186,12 @@ p {
 
 .glass-card {
   background: var(--glass-bg);
-  border: 1px solid rgba(163, 230, 53, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.07);
   border-radius: 16px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 2.5rem;
-  box-shadow: 0 10px 40px -10px rgba(163, 230, 53, 0.15);
-  /* Important for light mode separation */
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
@@ -205,10 +204,14 @@ p {
 }
 
 .glass-card:hover {
-  border-color: rgba(163, 230, 53, 0.8);
-  /* neon lime glow */
-  box-shadow: 0 8px 32px rgba(163, 230, 53, 0.15);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
   transform: translateY(-2px);
+}
+
+.dark .glass-card:hover {
+  border-color: rgba(163, 230, 53, 0.8);
+  box-shadow: 0 8px 32px rgba(163, 230, 53, 0.15);
 }
 
 .neon-glow-text {
