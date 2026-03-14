@@ -68,7 +68,7 @@ export default function ContactPage() {
                 <div className={styles.formSection}>
                     <h2>Start a Project</h2>
                     <form className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", display: "flex", flexDirection: "column", gap: "2rem" }}>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+                        <div className={styles.formGrid}>
                             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                                 <label htmlFor="name" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>NAME</label>
                                 <input 
