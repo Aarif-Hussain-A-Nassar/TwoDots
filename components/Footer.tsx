@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Linkedin, Twitter, Github } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 import styles from "./footer.module.css";
 
 export default function Footer() {
@@ -23,10 +23,8 @@ export default function Footer() {
                         Crafting high-end digital experiences. We engineer modern, scalable, and visually stunning web solutions for forward-thinking brands.
                     </p>
                     <div className={styles.footerSocials}>
-                        <a href="#" className={styles.socialLink} aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href="https://www.instagram.com/twodots.dev?igsh=eHVtNWFnZW5uOTBq" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram"><Instagram size={20} /></a>
                         <a href="#" className={styles.socialLink} aria-label="LinkedIn"><Linkedin size={20} /></a>
-                        <a href="#" className={styles.socialLink} aria-label="Twitter"><Twitter size={20} /></a>
-                        <a href="#" className={styles.socialLink} aria-label="GitHub"><Github size={20} /></a>
                     </div>
                 </div>
 
