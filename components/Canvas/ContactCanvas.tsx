@@ -7,8 +7,8 @@ import { useTheme } from "next-themes";
 
 function ParticleSphere() {
     const pointsRef = useRef<THREE.Points>(null);
-    const { theme } = useTheme();
-    const isDark = theme === "dark";
+    const { theme, resolvedTheme } = useTheme();
+    const isDark = (resolvedTheme || theme) === "dark";
 
     const count = 2500;
     const [positions, colors] = useMemo(() => {
@@ -91,10 +91,10 @@ function ParticleSphere() {
                 />
             </bufferGeometry>
             <pointsMaterial
-                size={isDark ? 0.05 : 0.06}
+                size={isDark ? 0.05 : 0.08}
                 vertexColors
                 transparent
-                opacity={isDark ? 0.8 : 0.4}
+                opacity={isDark ? 0.8 : 0.85}
                 sizeAttenuation={true}
                 depthWrite={false}
                 blending={isDark ? THREE.AdditiveBlending : THREE.NormalBlending}
