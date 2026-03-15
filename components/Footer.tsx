@@ -24,7 +24,7 @@ export default function Footer() {
                     </p>
                     <div className={styles.footerSocials}>
                         <a href="https://www.instagram.com/twodots.dev?igsh=eHVtNWFnZW5uOTBq" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram"><Instagram size={20} /></a>
-                        <a href="#" className={styles.socialLink} aria-label="LinkedIn"><Linkedin size={20} /></a>
+                        <a href="https://www.linkedin.com/company/hello-two-dots/about/" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn"><Linkedin size={20} /></a>
                     </div>
                 </div>
 

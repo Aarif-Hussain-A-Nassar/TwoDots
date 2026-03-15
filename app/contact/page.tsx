@@ -15,18 +15,18 @@ export default function ContactPage() {
             <ContactCanvas />
 
             <div className={styles.contactContainer}>
-                <TransitionLink 
-                    href="/" 
-                    style={{ 
-                        display: "inline-flex", 
-                        alignItems: "center", 
-                        gap: "0.5rem", 
-                        color: "var(--muted)", 
-                        textDecoration: "none", 
-                        marginBottom: "2rem", 
-                        transition: "color 0.3s" 
-                    }} 
-                    onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"} 
+                <TransitionLink
+                    href="/"
+                    style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        color: "var(--muted)",
+                        textDecoration: "none",
+                        marginBottom: "2rem",
+                        transition: "color 0.3s"
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = "var(--neon-lime)"}
                     onMouseLeave={(e) => e.currentTarget.style.color = "var(--muted)"}
                 >
                     <ArrowLeft size={20} />
@@ -53,7 +53,7 @@ export default function ContactPage() {
 
                     <div className={styles.connectCard}>
                         <div className={styles.cardTitle}>Email</div>
-                        <div className={styles.cardContent}>hello@twodots.co</div>
+                        <div className={styles.cardContent}><a href="mailto:twodots.dev.co@gmail.com" style={{ color: "inherit", textDecoration: "none" }}>twodots.dev.co@gmail.com</a></div>
                         <p className={styles.cardDescription}>
                             Send us a detailed message. We'll get back to you as soon as possible to discuss your creative project further.
                         </p>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                         <div className={styles.cardTitle}>Social Media</div>
                         <div className={styles.socialIcons}>
                             <a href="https://www.instagram.com/twodots.dev?igsh=eHVtNWFnZW5uOTBq" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram"><Instagram size={20} /></a>
-                            <a href="#" className={styles.socialIcon} aria-label="LinkedIn"><Linkedin size={20} /></a>
+                            <a href="https://www.linkedin.com/company/hello-two-dots/about/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="LinkedIn"><Linkedin size={20} /></a>
                         </div>
                         <p className={styles.cardDescription}>
                             Follow us on Social Media Platforms for a glimpse into our creative world, industry insights, and projects.
@@ -77,19 +77,19 @@ export default function ContactPage() {
                         <div className={styles.formGrid}>
                             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                                 <label htmlFor="name" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>NAME</label>
-                                <input 
-                                    type="text" 
-                                    id="name" 
+                                <input
+                                    type="text"
+                                    id="name"
                                     placeholder="What's your name?"
-                                    style={{ 
-                                        width: "100%", 
+                                    style={{
+                                        width: "100%",
                                         boxSizing: "border-box",
-                                        padding: "1.2rem", 
-                                        background: "rgba(255, 255, 255, 0.02)", 
-                                        border: "1px solid var(--grid-color)", 
-                                        borderRadius: "12px", 
-                                        color: "var(--foreground)", 
-                                        fontFamily: "var(--font-inter)", 
+                                        padding: "1.2rem",
+                                        background: "rgba(255, 255, 255, 0.02)",
+                                        border: "1px solid var(--grid-color)",
+                                        borderRadius: "12px",
+                                        color: "var(--foreground)",
+                                        fontFamily: "var(--font-inter)",
                                         fontSize: "1rem",
                                         outline: "none",
                                         transition: "all 0.3s"
@@ -107,19 +107,19 @@ export default function ContactPage() {
 
                             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                                 <label htmlFor="email" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>EMAIL ADDRESS</label>
-                                <input 
-                                    type="email" 
-                                    id="email" 
+                                <input
+                                    type="email"
+                                    id="email"
                                     placeholder="How can we reach you?"
-                                    style={{ 
-                                        width: "100%", 
+                                    style={{
+                                        width: "100%",
                                         boxSizing: "border-box",
-                                        padding: "1.2rem", 
-                                        background: "rgba(255, 255, 255, 0.02)", 
-                                        border: "1px solid var(--grid-color)", 
-                                        borderRadius: "12px", 
-                                        color: "var(--foreground)", 
-                                        fontFamily: "var(--font-inter)", 
+                                        padding: "1.2rem",
+                                        background: "rgba(255, 255, 255, 0.02)",
+                                        border: "1px solid var(--grid-color)",
+                                        borderRadius: "12px",
+                                        color: "var(--foreground)",
+                                        fontFamily: "var(--font-inter)",
                                         fontSize: "1rem",
                                         outline: "none",
                                         transition: "all 0.3s"
@@ -138,19 +138,19 @@ export default function ContactPage() {
 
                         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                             <label htmlFor="message" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>MESSAGE</label>
-                            <textarea 
-                                id="message" 
+                            <textarea
+                                id="message"
                                 placeholder="Tell us about your project or inquiry..."
                                 rows={6}
-                                style={{ 
-                                    width: "100%", 
+                                style={{
+                                    width: "100%",
                                     boxSizing: "border-box",
-                                    padding: "1.2rem", 
-                                    background: "rgba(255, 255, 255, 0.02)", 
-                                    border: "1px solid var(--grid-color)", 
-                                    borderRadius: "12px", 
-                                    color: "var(--foreground)", 
-                                    fontFamily: "var(--font-inter)", 
+                                    padding: "1.2rem",
+                                    background: "rgba(255, 255, 255, 0.02)",
+                                    border: "1px solid var(--grid-color)",
+                                    borderRadius: "12px",
+                                    color: "var(--foreground)",
+                                    fontFamily: "var(--font-inter)",
                                     fontSize: "1rem",
                                     outline: "none",
                                     resize: "vertical",
@@ -167,13 +167,13 @@ export default function ContactPage() {
                             />
                         </div>
 
-                        <button 
-                            type="button" 
-                            className="hero-btn" 
-                            style={{ 
-                                display: "inline-flex", 
-                                alignItems: "center", 
-                                gap: "0.75rem", 
+                        <button
+                            type="button"
+                            className="hero-btn"
+                            style={{
+                                display: "inline-flex",
+                                alignItems: "center",
+                                gap: "0.75rem",
                                 alignSelf: "flex-start",
                                 padding: "1rem 2.5rem",
                                 fontSize: "1rem"
@@ -187,5 +187,5 @@ export default function ContactPage() {
             </div>
             <Footer />
         </main>
-    );    
+    );
 }
