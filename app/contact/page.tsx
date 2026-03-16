@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { TransitionLink } from "../../components/TransitionLink";
 import { ArrowLeft, Send, Phone, Mail, Share2, Instagram, Linkedin } from "lucide-react";
 import styles from "./contact.module.css";
@@ -9,6 +11,29 @@ import dynamic from "next/dynamic";
 const ContactCanvas = dynamic(() => import("../../components/Canvas/ContactCanvas"), { ssr: false });
 
 export default function ContactPage() {
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setStatus("loading");
+        const form = e.currentTarget;
+        const data = new FormData(form);
+        try {
+            const res = await fetch("https://formspree.io/f/xlgppeqb", {
+                method: "POST",
+                body: data,
+                headers: { Accept: "application/json" },
+            });
+            if (res.ok) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch {
+            setStatus("error");
+        }
+    }
     return (
         <main className="section-padding scroll-container" style={{ paddingTop: "clamp(6rem, 15vh, 12rem)", position: "relative" }}>
             {/* 3D Canvas Background */}
@@ -73,13 +98,15 @@ export default function ContactPage() {
 
                 <div className={styles.formSection}>
                     <h2>Start a Project</h2>
-                    <form className="glass-card" style={{ padding: "clamp(1.5rem, 5vw, 3rem)", display: "flex", flexDirection: "column", gap: "2rem" }}>
+                    <form className="glass-card" onSubmit={handleSubmit} style={{ padding: "clamp(1.5rem, 5vw, 3rem)", display: "flex", flexDirection: "column", gap: "2rem" }}>
                         <div className={styles.formGrid}>
                             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                                 <label htmlFor="name" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>NAME</label>
                                 <input
                                     type="text"
                                     id="name"
+                                    name="name"
+                                    required
                                     placeholder="What's your name?"
                                     style={{
                                         width: "100%",
@@ -110,6 +137,8 @@ export default function ContactPage() {
                                 <input
                                     type="email"
                                     id="email"
+                                    name="email"
+                                    required
                                     placeholder="How can we reach you?"
                                     style={{
                                         width: "100%",
@@ -140,6 +169,8 @@ export default function ContactPage() {
                             <label htmlFor="message" style={{ color: "var(--muted)", fontSize: "0.8rem", letterSpacing: "0.1em", fontWeight: 600 }}>MESSAGE</label>
                             <textarea
                                 id="message"
+                                name="message"
+                                required
                                 placeholder="Tell us about your project or inquiry..."
                                 rows={6}
                                 style={{
@@ -167,8 +198,19 @@ export default function ContactPage() {
                             />
                         </div>
 
+                        {status === "success" && (
+                            <p style={{ color: "var(--neon-lime)", fontWeight: 600, fontSize: "0.95rem" }}>
+                                ✓ Message sent! We'll get back to you soon.
+                            </p>
+                        )}
+                        {status === "error" && (
+                            <p style={{ color: "#ff6b6b", fontWeight: 600, fontSize: "0.95rem" }}>
+                                ✗ Something went wrong. Please try again or email us directly.
+                            </p>
+                        )}
                         <button
-                            type="button"
+                            type="submit"
+                            disabled={status === "loading"}
                             className="hero-btn"
                             style={{
                                 display: "inline-flex",
@@ -176,10 +218,12 @@ export default function ContactPage() {
                                 gap: "0.75rem",
                                 alignSelf: "flex-start",
                                 padding: "1rem 2.5rem",
-                                fontSize: "1rem"
+                                fontSize: "1rem",
+                                opacity: status === "loading" ? 0.7 : 1,
+                                cursor: status === "loading" ? "not-allowed" : "pointer"
                             }}
                         >
-                            <span>SEND MESSAGE</span>
+                            <span>{status === "loading" ? "SENDING..." : "SEND MESSAGE"}</span>
                             <Send size={18} />
                         </button>
                     </form>
