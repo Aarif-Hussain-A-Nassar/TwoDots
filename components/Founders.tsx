@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Founders() {
     return (
@@ -22,9 +23,27 @@ export function Founders() {
                     className="glass-card"
                     style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
                 >
-                    <div style={{ width: "100%", height: "300px", borderRadius: "8px", background: "var(--glass-bg)", border: "1px solid var(--grid-color)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                        {/* Placeholder for image - user can replace with actual Next Image later */}
-                        <span style={{ color: "var(--muted)", letterSpacing: "0.1em", fontSize: "0.8rem", textTransform: "uppercase" }}>[Image Placeholder]</span>
+                    {/* aspect-ratio box — image fills it perfectly */}
+                    <div style={{
+                        width: "100%",
+                        aspectRatio: "3 / 4",
+                        borderRadius: "8px",
+                        border: "1px solid var(--grid-color)",
+                        overflow: "hidden",
+                        position: "relative",
+                    }}>
+                        <Image
+                            src="/aarif.webp"
+                            alt="Aarif — Co-Founder & Developer"
+                            fill
+                            style={{
+                                objectFit: "cover",
+                                objectPosition: "center top",
+                                filter: "grayscale(100%) contrast(1.05)",
+                            }}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            priority
+                        />
                     </div>
                     <div>
                         <h3 style={{ fontSize: "2rem", fontWeight: 500, color: "var(--foreground)", marginBottom: "0.5rem" }}>
@@ -46,9 +65,26 @@ export function Founders() {
                     className="glass-card"
                     style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
                 >
-                    <div style={{ width: "100%", height: "300px", borderRadius: "8px", background: "var(--glass-bg)", border: "1px solid var(--grid-color)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
-                        {/* Placeholder for image - user can replace with actual Next Image later */}
-                        <span style={{ color: "var(--muted)", letterSpacing: "0.1em", fontSize: "0.8rem", textTransform: "uppercase" }}>[Image Placeholder]</span>
+                    {/* aspect-ratio box — image fills it perfectly */}
+                    <div style={{
+                        width: "100%",
+                        aspectRatio: "3 / 4",
+                        borderRadius: "8px",
+                        border: "1px solid var(--grid-color)",
+                        overflow: "hidden",
+                        position: "relative",
+                    }}>
+                        <Image
+                            src="/akshai.webp"
+                            alt="Akshai — Co-Founder & Creative Lead"
+                            fill
+                            style={{
+                                objectFit: "cover",
+                                objectPosition: "center top",
+                                filter: "grayscale(100%) contrast(1.05)",
+                            }}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                     </div>
                     <div>
                         <h3 style={{ fontSize: "2rem", fontWeight: 500, color: "var(--foreground)", marginBottom: "0.5rem" }}>
