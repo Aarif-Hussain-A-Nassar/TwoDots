@@ -4,33 +4,41 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Globe, Instagram } from "lucide-react";
 import { TransitionLink } from "./TransitionLink";
 
+type ProjectLink = { url: string; type: "website" | "social" };
+
 const PROJECTS = [
     { 
         title: "Netzone", 
         category: "Web Development", 
         url: "https://www.netzonethecompletesolutions.com/", 
-        type: "website", 
+        type: "website" as const, 
         slug: "netzone",
         logoLight: "/logo-light.png",
-        logoDark: "/logo-dark.png"
+        logoDark: "/logo-dark.png",
+        links: undefined as ProjectLink[] | undefined
     },
     { 
         title: "Cooking Grandma", 
         category: "Web Design", 
         url: "https://cooking-grandma.vercel.app/", 
-        type: "website", 
+        type: "website" as const, 
         slug: "cooking-grandma",
         logoLight: "/cookinggrandma.png",
-        logoDark: "/cookinggrandma.png"
+        logoDark: "/cookinggrandma.png",
+        links: undefined as ProjectLink[] | undefined
     },
     { 
         title: "Mass Developers", 
-        category: "Video Production", 
-        url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", 
-        type: "social", 
+        category: "Website & Video Production", 
+        url: "https://www.massdevelopers.in/", 
+        type: "website" as const, 
         slug: "mass-developers",
         logoLight: "/masslight.jpeg",
-        logoDark: "/massdevelopersdark.jpeg"
+        logoDark: "/massdevelopersdark.jpeg",
+        links: [
+            { url: "https://www.massdevelopers.in/", type: "website" as const },
+            { url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", type: "social" as const }
+        ] as ProjectLink[]
     },
 ];
 
@@ -127,36 +135,43 @@ export function Projects() {
                                     </div>
                                 </div>
 
-                                <div style={{ display: "flex", alignItems: "center", gap: "2rem" }}>
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            window.open(project.url, "_blank", "noopener,noreferrer");
-                                        }}
-                                        style={{
-                                            padding: "0.5rem 1.2rem",
-                                            background: "rgba(255,255,255,0.03)",
-                                            border: "1px solid var(--grid-color)",
-                                            borderRadius: "9999px",
-                                            color: "var(--foreground)",
-                                            fontFamily: "var(--font-inter)",
-                                            fontSize: "0.85rem",
-                                            cursor: "pointer",
-                                            transition: "all 0.3s ease",
-                                            letterSpacing: "0.05em"
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.borderColor = "var(--neon-lime)";
-                                            e.currentTarget.style.color = "var(--neon-lime)";
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.borderColor = "var(--grid-color)";
-                                            e.currentTarget.style.color = "var(--foreground)";
-                                        }}
-                                    >
-                                        {project.type === "social" ? <Instagram size={18} /> : <Globe size={18} />}
-                                    </button>
+                                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                                    {/* Render multiple link buttons if project has links array, otherwise single button */}
+                                    {(project.links ?? [{ url: project.url, type: project.type }]).map((link, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                window.open(link.url, "_blank", "noopener,noreferrer");
+                                            }}
+                                            style={{
+                                                padding: "0.5rem 1rem",
+                                                background: "rgba(255,255,255,0.03)",
+                                                border: "1px solid var(--grid-color)",
+                                                borderRadius: "9999px",
+                                                color: "var(--foreground)",
+                                                fontFamily: "var(--font-inter)",
+                                                fontSize: "0.85rem",
+                                                cursor: "pointer",
+                                                transition: "all 0.3s ease",
+                                                letterSpacing: "0.05em",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "0.4rem"
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.borderColor = "var(--neon-lime)";
+                                                e.currentTarget.style.color = "var(--neon-lime)";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.borderColor = "var(--grid-color)";
+                                                e.currentTarget.style.color = "var(--foreground)";
+                                            }}
+                                        >
+                                            {link.type === "social" ? <Instagram size={16} /> : <Globe size={16} />}
+                                        </button>
+                                    ))}
                                     <ArrowUpRight className="project-arrow" strokeWidth={1.5} size={32} opacity={0.3} style={{ transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", color: "var(--foreground)" }} />
                                 </div>
                             </motion.div>
