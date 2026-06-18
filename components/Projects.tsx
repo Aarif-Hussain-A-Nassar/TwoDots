@@ -40,6 +40,16 @@ const PROJECTS = [
             { url: "https://www.instagram.com/mass_developers?igsh=bm5lN2RrbWx5ZW0x&utm_source=qr", type: "social" as const }
         ] as ProjectLink[]
     },
+    { 
+        title: "ABM Marine", 
+        category: "Web Design & Development", 
+        url: "https://abmmarine.com/", 
+        type: "website" as const, 
+        slug: "abm-marine",
+        logoLight: "/abm-logo.jpeg",
+        logoDark: "/abm-logo.jpeg",
+        links: undefined as ProjectLink[] | undefined
+    },
 ];
 
 export function Projects() {
